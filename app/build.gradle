@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+android {
+
+//The following section configures all your project’s Android-specific parameters,
+// and tells Gradle which version of Android it should build your project with.
+// If you’ve developed Android applications before, the following should all be familiar.
+
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+
+    //Defines your application’s ID. Note, earlier versions of the Android plugin used ‘packageName’ instead of ‘applicationID.’//
+        applicationId "com.example.lyn.callibrpump"
+
+    //The minimum API required by your project.//
+        minSdkVersion 19
+
+    //The version of Android you’re developing your application for.//
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+
+//‘BuildTypes’ controls how your app is built and packaged.
+// If you want to create your own build variants, you’ll need to add them to this section.//
+    buildTypes {
+        release {
+
+            //Gradle runs ProGuard during the build process.//
+            minifyEnabled false
+
+            //Applies the default ProGuard settings from the Android SDK.//
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+//Declares the dependencies for the current module./
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+//Although you can add JAR files by compiling them individually,
+// this can be time-consuming if you have lots of JARs.
+// In this example, we’re telling Gradle to add all the JAR files in the app/libs folder.//
+
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'com.android.support:design:23.2.1'
+    //To create more dependencies, add them to the depencies closure.//
+
+    compile 'com.beardedhen:androidbootstrap:2.1.0'
+}

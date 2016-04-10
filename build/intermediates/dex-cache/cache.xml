@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/lyn/AndroidStudio/CalLiBrPump/app/build/intermediates/exploded-aar/com.beardedhen/androidbootstrap/2.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b6cc3a468ee2bfe161efdadfa6c99edb02ce8cfa">
+        <dex dex="/Users/lyn/AndroidStudio/CalLiBrPump/app/build/intermediates/pre-dexed/debug/com.beardedhen-androidbootstrap-2.1.0_9e36935f7c8d7afe282db2317e4147ac673425ac.jar" />
+    </item>
+
+</items>
