@@ -21,7 +21,7 @@ import lyn.librpump.kernel.formular.Formular;
 
 public class Absorber {
 
-        Formular formular;
+        Formular formular = new Formular();
 
         //二次水入口温度及二次水出吸收器的温度
         double Twai,Twao;

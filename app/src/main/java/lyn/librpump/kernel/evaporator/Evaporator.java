@@ -20,7 +20,7 @@ import lyn.librpump.kernel.formular.Formular;
  */
 public class Evaporator {
 
-    Formular formular;
+    Formular formular = new Formular();
 
     double Twei;
     double Tweo;
@@ -115,7 +115,7 @@ public class Evaporator {
         return H1i;
     }
 
-    public double getH1o(){
+    public double getH1o() {
         return H1o;
     }
 

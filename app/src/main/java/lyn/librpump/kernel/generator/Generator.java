@@ -7,7 +7,7 @@ import lyn.librpump.kernel.formular.Formular;
  */
 public class Generator {
 
-    Formular formular;
+    Formular formular = new Formular();
 
     double T4wo,P4wo,H4wo,X4wo;
     double T4o,P4o,H4o,X4o;

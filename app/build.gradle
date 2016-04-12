@@ -15,7 +15,7 @@ android {
         applicationId "com.example.lyn.callibrpump"
 
     //The minimum API required by your project.//
-        minSdkVersion 19
+        minSdkVersion 21
 
     //The version of Android you’re developing your application for.//
         targetSdkVersion 23

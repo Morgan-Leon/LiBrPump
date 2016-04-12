@@ -4,4 +4,12 @@
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
     <string name="title_activity_display_message">DisplayMessageActivity</string>
+
+    <string name="t_wai">输入二次水入口温度（˚C）</string>
+    <string name="t_wco">输入二次水出口温度（˚C）</string>
+    <string name="t_wei">输入低品质热源入口温度（˚C）</string>
+    <string name="t_weo">输入低品质热源出口温度（˚C）</string>
+    <string name="commit">确认</string>
+    <string name="clearInput">重置</string>
+
 </resources>

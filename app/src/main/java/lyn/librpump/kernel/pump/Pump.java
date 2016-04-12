@@ -84,16 +84,16 @@ public class Pump {
         double p_a = calPressrueOfAbsorber(e.getP1o(), this.deltaP_e);
         //默认吸收器与冷凝器温度差为6摄氏度
         this.a = new Absorber(Twai, deltaT_w1,deltaT_a,p_a, deltaX_a);
-        System.out.println("\n吸收器构建成功" );
+        System.out.println("\n吸收器构建成功");
         a.printAbsorber();
 
         this.c = new Condenser(Twco,deltaT_c);
-        System.out.println("\n冷凝器构建成功" );
+        System.out.println("\n冷凝器构建成功");
         c.printCondenser();
 
         //构造发生器需要吸收器入口温度浓度和冷凝器出口温度
         this.g = new Generator(c.getT3o(),c.getP3o(),a.getX2o(),a.getX6i());
-        System.out.println("\n发生器构建成功" );
+        System.out.println("\n发生器构建成功");
         g.printGenerator();
 
         this.XL = a.getX2o();
@@ -115,6 +115,44 @@ public class Pump {
             ,double a_tdr, double c_tdr, double deltaT_a
             ,double deltaP_e ,double deltaX_a
             ,double deltaT_c, double deltaT_h){
+        pumpInit(Twco,Twai,a_tdr,c_tdr);
+
+        this.e = new Evaporator(Twei,Tweo,deltaT_e);
+        System.out.println("蒸发器构建成功");
+        e.printEvaporator();
+        //由蒸发器决定吸收器压强
+        double p_a = calPressrueOfAbsorber(e.getP1o(), this.deltaP_e);
+        //默认吸收器与冷凝器温度差为6摄氏度
+        this.a = new Absorber(Twai, deltaT_w1,deltaT_a, p_a, deltaX_a);
+        System.out.println("\n吸收器构建成功");
+        a.printAbsorber();
+
+        this.c = new Condenser(Twco,deltaT_c);
+        System.out.println("\n冷凝器构建成功");
+        c.printCondenser();
+
+        //构造发生器需要吸收器入口温度浓度和冷凝器出口温度
+        this.g = new Generator(c.getT3o(),c.getP3o(),a.getX2o(),a.getX6i());
+        System.out.println("\n发生器构建成功");
+        g.printGenerator();
+
+        this.XL = a.getX2o();
+        this.XH = g.getX4o();
+
+        this.circulationRate = calCirculationRate(XL, XH);
+
+        //构造溶液热交换器需要吸收器稀溶液出口温度和浓度以及发生器浓溶液出口浓度
+        this.h = new HeatExchanger(a.getT2o(),XL, XH, g.getH4o(),a.getH2o(), deltaT_h);
+        System.out.println("\n溶液热交换器构造成功");
+        h.printHeatExchanger();
+
+        this.circulationRate = calCirculationRate(XL, XH);
+
+        calCOP();
+
+    }
+
+    public Pump(double Twai, double Twco, double Twei, double Tweo){
         pumpInit(Twco,Twai,a_tdr,c_tdr);
 
         this.e = new Evaporator(Twei,Tweo,deltaT_e);
@@ -149,11 +187,6 @@ public class Pump {
         this.circulationRate = calCirculationRate(XL, XH);
 
         calCOP();
-
-    }
-
-    public Pump(double Twai, double Twco, double Twei, double Tweo){
-
 
     }
 
@@ -228,6 +261,10 @@ public class Pump {
         this.cop = (Q_c + Q_a) / Q_g;
         System.out.println("COP = " +cop );
         return cop;
+    }
+
+    public double getCOP () {
+        return this.cop;
     }
 
 

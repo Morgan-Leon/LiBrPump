@@ -7,7 +7,7 @@ import lyn.librpump.kernel.formular.Formular;
  */
 public class HeatExchanger {
 
-    Formular formular;
+    Formular formular = new Formular();
 
     double XL,XH;
     double deltaT_h = 17;

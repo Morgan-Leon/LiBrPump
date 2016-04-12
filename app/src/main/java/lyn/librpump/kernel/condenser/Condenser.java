@@ -18,7 +18,7 @@ import lyn.librpump.kernel.formular.Formular;
 
 public class Condenser {
 
-    Formular formular;
+    Formular formular = new Formular();
 
     //冷凝器出口水温要略高于二次水出口，其大小由冷凝管决定（3-5˚C）
     double deltaT_c = 5;
