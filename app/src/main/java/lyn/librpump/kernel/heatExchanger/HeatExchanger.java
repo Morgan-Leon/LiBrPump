@@ -81,4 +81,28 @@ public class HeatExchanger {
         System.out.println("\t    X8o = " +X8o+"%" );
 
     }
+
+    public double getT7o() {
+        return T7o;
+    }
+
+    public double getP7o() {
+        return P7o;
+    }
+
+    public double getX7o() {
+        return X7o;
+    }
+
+    public double getT8o() {
+        return T8o;
+    }
+
+    public double getP8o() {
+        return P8o;
+    }
+
+    public double getX8o() {
+        return X8o;
+    }
 }

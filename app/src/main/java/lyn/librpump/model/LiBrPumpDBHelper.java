@@ -33,8 +33,8 @@ public class LiBrPumpDBHelper extends SQLiteOpenHelper{
 //            `Twei`	NUMERIC,
 //            `Tweo`	NUMERIC,
 //            `deltaT_e`	NUMERIC,
-//            `a_trd`	NUMERIC,
-//            `c_trd`	NUMERIC,
+//            `a_TDR`	NUMERIC,
+//            `c_TDR`	NUMERIC,
 //            `deltaP_e`	NUMERIC,
 //            `deltaX_a`	NUMERIC,
 //            `deltaT_c`	NUMERIC,
@@ -49,9 +49,8 @@ public class LiBrPumpDBHelper extends SQLiteOpenHelper{
                     LiBrPumpConfigEntry.COLUMN_NAME_TWCO + NUMERIC_TYPE + COMMA_SEP +
                     LiBrPumpConfigEntry.COLUMN_NAME_TWEI + NUMERIC_TYPE + COMMA_SEP +
                     LiBrPumpConfigEntry.COLUMN_NAME_TWEO + NUMERIC_TYPE + COMMA_SEP +
-                    LiBrPumpConfigEntry.COLUMN_NAME_TWCO + NUMERIC_TYPE + COMMA_SEP +
-                    LiBrPumpConfigEntry.COLUMN_NAME_A_TRD + NUMERIC_TYPE + COMMA_SEP +
-                    LiBrPumpConfigEntry.COLUMN_NAME_C_TRD + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpConfigEntry.COLUMN_NAME_A_TDR + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpConfigEntry.COLUMN_NAME_C_TDR + NUMERIC_TYPE + COMMA_SEP +
                     LiBrPumpConfigEntry.COLUMN_NAME_DELTAT_E + NUMERIC_TYPE + COMMA_SEP +
                     LiBrPumpConfigEntry.COLUMN_NAME_DELTAP_E + NUMERIC_TYPE + COMMA_SEP +
                     LiBrPumpConfigEntry.COLUMN_NAME_DELTAX_A + NUMERIC_TYPE + COMMA_SEP +
@@ -59,7 +58,7 @@ public class LiBrPumpDBHelper extends SQLiteOpenHelper{
                     LiBrPumpConfigEntry.COLUMN_NAME_DELTAT_H + NUMERIC_TYPE + COMMA_SEP +
 
                     LiBrPumpConfigEntry.COLUMN_NAME_CREATE_TIME + INTEGER_TYPE+ COMMA_SEP +
-                    LiBrPumpConfigEntry.COLUMN_NAME_MODIFICATION_TIME + INTEGER_TYPE+ COMMA_SEP +
+                    LiBrPumpConfigEntry.COLUMN_NAME_MODIFICATION_TIME + INTEGER_TYPE +
                     " )";
 
 
@@ -125,11 +124,9 @@ public class LiBrPumpDBHelper extends SQLiteOpenHelper{
 
                     LiBrPumpEntry.COLUMN_NAME_CREATE_TIME + INTEGER_TYPE+ COMMA_SEP +
                     LiBrPumpEntry.COLUMN_NAME_MODIFICATION_TIME + INTEGER_TYPE+ COMMA_SEP +
-
-                    "FOREIGN KEY(" +
-                    LiBrPumpEntry.COLUMN_NAME_CONFIG_ID +
-                    ") REFERENCES " +
-                    LiBrPumpConfigEntry.TABLE_NAME + "." + LiBrPumpConfigEntry._ID +
+                    "CONSTRAINT " + LiBrPumpEntry.COLUMN_NAME_CONFIG_ID  +
+                    " FOREIGN KEY(" + LiBrPumpConfigEntry._ID + ")" +
+                    " REFERENCES " + LiBrPumpConfigEntry.TABLE_NAME + "(" + LiBrPumpConfigEntry._ID + ")" +
                     
             " )";
 
@@ -158,9 +155,9 @@ public class LiBrPumpDBHelper extends SQLiteOpenHelper{
         onUpgrade(db, oldVersion, newVersion);
     }
 
-    public long insertToConfig(ContentValues values){
+    public long insert(String table_name, ContentValues values){
         SQLiteDatabase db = this.getWritableDatabase();
-        long newRowId = db.insert(LiBrPumpConfigEntry.TABLE_NAME,LiBrPumpConfigEntry.COLUMN_NAME_NULLABLE,values);
+        long newRowId = db.insert(table_name, "null", values);
         return  newRowId;
     }
 

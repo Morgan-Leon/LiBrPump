@@ -1,7 +1,6 @@
 package com.example.lyn.callibrpump;
 
-import android.app.ActionBar;
-import android.content.Intent;
+import android.content.ContentValues;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,15 +10,22 @@ import android.view.View;
 import android.widget.EditText;
 
 import lyn.librpump.kernel.pump.Pump;
+import lyn.librpump.model.LiBrPumpDBHelper;
+import lyn.librpump.model.librpump.LiBrPumpContract;
+import lyn.librpump.model.librpumpConfig.LiBrPumpConfigContract.*;
+
 
 public class CreatePumpActivity extends AppCompatActivity {
 
-
+    LiBrPumpDBHelper dbHelper;
+    EditText t_wai, t_wco, t_wei, t_weo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_pump);
+
+        dbHelper = new LiBrPumpDBHelper(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -34,43 +40,52 @@ public class CreatePumpActivity extends AppCompatActivity {
 
     public void createPump(View view){
 
-        EditText t_wai = (EditText) findViewById(R.id.t_wai);
+        //读取数据
+        t_wai = (EditText) findViewById(R.id.t_wai);
         double Twai = Double.valueOf(t_wai.getText().toString());
 
-        EditText t_wco = (EditText) findViewById(R.id.t_wco);
+        t_wco = (EditText) findViewById(R.id.t_wco);
         double Twco = Double.valueOf(t_wco.getText().toString());
 
-        EditText t_wei = (EditText) findViewById(R.id.t_wei);
+        t_wei = (EditText) findViewById(R.id.t_wei);
         double Twei = Double.valueOf(t_wei.getText().toString());
 
-        EditText t_weo = (EditText) findViewById(R.id.t_weo);
+        t_weo = (EditText) findViewById(R.id.t_weo);
         double Tweo = Double.valueOf(t_weo.getText().toString());
 
-        System.out.println("======================================");
+//        System.out.println("======================================");
+//
+//        System.out.println(Twai + " " + Twco + " " + Twei + " " + Tweo + " ");
+//
+//        System.out.println("======================================");
 
-        System.out.println(Twai + " " + Twco + " " + Twei + " " + Tweo + " ");
-
-        System.out.println("======================================");
-
+        //生成热泵并进行计算
         Pump pump = new Pump(Twai,Twco,Twei,Tweo);
 
         Snackbar.make(view, "COP = " + pump.getCOP(), Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
 
+        ContentValues pumpConfigValues ,pumpValues;
+
+        pumpConfigValues = LiBrPumpConfigEntry.generateValues(pump);
+        pumpValues = LiBrPumpContract.LiBrPumpEntry.generateValues(pump);
+
+        dbHelper.insert(LiBrPumpConfigEntry.TABLE_NAME,pumpConfigValues);
+        dbHelper.insert(LiBrPumpContract.LiBrPumpEntry.TABLE_NAME,pumpValues);
     }
 
     public void clearInput(View view){
 
-        EditText t_wai = (EditText) findViewById(R.id.t_wai);
+        t_wai = (EditText) findViewById(R.id.t_wai);
 
 
-        EditText t_wco = (EditText) findViewById(R.id.t_wco);
+        t_wco = (EditText) findViewById(R.id.t_wco);
 
 
-        EditText t_wei = (EditText) findViewById(R.id.t_wei);
+        t_wei = (EditText) findViewById(R.id.t_wei);
 
 
-        EditText t_weo = (EditText) findViewById(R.id.t_weo);
+        t_weo = (EditText) findViewById(R.id.t_weo);
 
 
         t_wai.setText("");

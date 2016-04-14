@@ -64,11 +64,11 @@ public class Pump {
     double Q_e, Q_c, Q_a, Q_g, Q_ex;
 
 
-    Evaporator e;
-    Absorber a;
-    Condenser c;
-    Generator g;
-    HeatExchanger h;
+    public Evaporator e;
+    public Absorber a;
+    public Condenser c;
+    public Generator g;
+    public HeatExchanger h;
 
     //热能效率
     double cop;
@@ -267,5 +267,95 @@ public class Pump {
         return this.cop;
     }
 
+    public double getA_tdr() {
+        return a_tdr;
+    }
 
+    public double getC_tdr() {
+        return c_tdr;
+    }
+
+    public double getTwgi() {
+        return Twgi;
+    }
+
+    public double getTwei() {
+        return Twei;
+    }
+
+    public double getTweo() {
+        return Tweo;
+    }
+
+    public double getDeltaT_e() {
+        return deltaT_e;
+    }
+
+    public double getTwco() {
+        return Twco;
+    }
+
+    public double getTwai() {
+        return Twai;
+    }
+
+    public double getDeltaT_w() {
+        return deltaT_w;
+    }
+
+    public double getDeltaT_w1() {
+        return deltaT_w1;
+    }
+
+    public double getDeltaT_w2() {
+        return deltaT_w2;
+    }
+
+    public double getDeltaT_a() {
+        return deltaT_a;
+    }
+
+    public double getDeltaP_e() {
+        return deltaP_e;
+    }
+
+    public double getDeltaX_a() {
+        return deltaX_a;
+    }
+
+    public double getDeltaT_c() {
+        return deltaT_c;
+    }
+
+    public double getDeltaT_h() {
+        return deltaT_h;
+    }
+
+    public double getXH() {
+        return XH;
+    }
+
+    public double getXL() {
+        return XL;
+    }
+
+    public double getQ_e() {
+        return Q_e;
+    }
+
+    public double getQ_c() {
+        return Q_c;
+    }
+
+    public double getQ_a() {
+        return Q_a;
+    }
+
+    public double getQ_g() {
+        return Q_g;
+    }
+
+    public double getQ_ex() {
+        return Q_ex;
+    }
 }

@@ -26,6 +26,7 @@ public class Condenser {
     double Twco = 70;
 
     double T3o,P3o,H3o,X3o;
+    private Double x3o;
 
     public Condenser(){
         this.T3o = Twco + deltaT_c;
@@ -87,5 +88,9 @@ public class Condenser {
         System.out.println("\t    H3o  = " +H3o +"kJ/kg");
         System.out.println("\t    X3o  = " +X3o +"%");
 
+    }
+
+    public Double getX3o() {
+        return X3o;
     }
 }

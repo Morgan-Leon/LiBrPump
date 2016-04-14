@@ -99,4 +99,40 @@ public class Generator {
         System.out.println("\t    H5i  = " +H5i +"kJ/kg");
         System.out.println("\t    X5i  = " +X5i +"%");
     }
+
+    public double getT4wo() {
+        return T4wo;
+    }
+
+    public double getP4wo() {
+        return P4wo;
+    }
+
+    public double getX4wo() {
+        return X4wo;
+    }
+
+    public double getT4o() {
+        return T4o;
+    }
+
+    public double getP4o() {
+        return P4o;
+    }
+
+    public double getT5i() {
+        return T5i;
+    }
+
+    public double getP5i() {
+        return P5i;
+    }
+
+    public double getH5i() {
+        return H5i;
+    }
+
+    public double getX5i() {
+        return X5i;
+    }
 }

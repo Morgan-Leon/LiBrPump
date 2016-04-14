@@ -120,4 +120,20 @@ public class Absorber {
         }
 
 
+
+        public double getP2o() {
+            return P2o;
+        }
+
+        public double getT6i() {
+            return T6i;
+        }
+
+        public double getP6i() {
+            return P6i;
+        }
+
+        public double getH6i() {
+            return H6i;
+        }
 }
