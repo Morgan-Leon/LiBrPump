@@ -1,4 +1,4 @@
-package com.example.lyn.callibrpump;
+package lyn.librpump.activity;
 
 import android.content.ContentValues;
 import android.support.design.widget.Snackbar;
@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+
+import lyn.callibrpump.R;
 
 import lyn.librpump.kernel.pump.Pump;
 import lyn.librpump.model.LiBrPumpDBHelper;
@@ -70,8 +72,7 @@ public class CreatePumpActivity extends AppCompatActivity {
         pumpConfigValues = LiBrPumpConfigEntry.generateValues(pump);
         pumpValues = LiBrPumpContract.LiBrPumpEntry.generateValues(pump);
 
-        dbHelper.insert(LiBrPumpConfigEntry.TABLE_NAME,pumpConfigValues);
-        dbHelper.insert(LiBrPumpContract.LiBrPumpEntry.TABLE_NAME,pumpValues);
+        dbHelper.insert(pumpConfigValues,pumpValues);
     }
 
     public void clearInput(View view){

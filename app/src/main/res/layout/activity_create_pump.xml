@@ -7,7 +7,7 @@
     <!--android:paddingLeft="@dimen/activity_horizontal_margin"-->
     <!--android:paddingRight="@dimen/activity_horizontal_margin"-->
     <!--android:paddingTop="@dimen/activity_vertical_margin"-->
-    <!--tools:context="com.example.lyn.callibrpump.CreatePumpActivity">-->
+    <!--tools:context="CreatePumpActivity">-->
 
 <!--</RelativeLayout>-->
 
@@ -17,7 +17,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.lyn.callibrpump.CreatePumpActivity">
+    tools:context="lyn.librpump.activity.CreatePumpActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.lyn.callibrpump.CreatePumpActivity"   >
+    tools:context="lyn.librpump.activity.CreatePumpActivity"   >
 
         <EditText android:id="@+id/t_wai"
             android:paddingTop="10dp"
@@ -53,6 +53,7 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:numeric="decimal"
+            android:text="50"
             android:hint="@string/t_wai" />
 
         <EditText android:id="@+id/t_wco"
@@ -64,6 +65,7 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:numeric="decimal"
+            android:text="70"
             android:hint="@string/t_wco" />
 
         <EditText android:id="@+id/t_wei"
@@ -75,6 +77,7 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:numeric="decimal"
+            android:text="50"
             android:hint="@string/t_wei" />
 
         <EditText android:id="@+id/t_weo"
@@ -86,6 +89,7 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:numeric="decimal"
+            android:text="30"
             android:hint="@string/t_weo" />
 
         <com.beardedhen.androidbootstrap.BootstrapButton

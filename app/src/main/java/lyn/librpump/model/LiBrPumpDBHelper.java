@@ -119,8 +119,9 @@ public class LiBrPumpDBHelper extends SQLiteOpenHelper{
                     LiBrPumpEntry.COLUMN_NAME_Q_E + NUMERIC_TYPE + COMMA_SEP +
                     LiBrPumpEntry.COLUMN_NAME_Q_C + NUMERIC_TYPE + COMMA_SEP +
                     LiBrPumpEntry.COLUMN_NAME_Q_A + NUMERIC_TYPE + COMMA_SEP +
-
                     LiBrPumpEntry.COLUMN_NAME_COP + NUMERIC_TYPE + COMMA_SEP +
+
+                    LiBrPumpEntry.COLUMN_NAME_CONFIG_ID + INTEGER_TYPE+ COMMA_SEP +
 
                     LiBrPumpEntry.COLUMN_NAME_CREATE_TIME + INTEGER_TYPE+ COMMA_SEP +
                     LiBrPumpEntry.COLUMN_NAME_MODIFICATION_TIME + INTEGER_TYPE+ COMMA_SEP +
@@ -155,10 +156,17 @@ public class LiBrPumpDBHelper extends SQLiteOpenHelper{
         onUpgrade(db, oldVersion, newVersion);
     }
 
-    public long insert(String table_name, ContentValues values){
+    public long insertToConfig(ContentValues values){
         SQLiteDatabase db = this.getWritableDatabase();
-        long newRowId = db.insert(table_name, "null", values);
+        long newRowId = db.insert(LiBrPumpConfigEntry.TABLE_NAME, "null", values);
         return  newRowId;
+    }
+
+    public long insert(ContentValues pumpConfigValues, ContentValues pumpValues){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long configId = insertToConfig(pumpConfigValues);
+        pumpValues.put(LiBrPumpEntry.COLUMN_NAME_CONFIG_ID, configId);
+        return  db.insert(LiBrPumpEntry.TABLE_NAME,"null",pumpValues);
     }
 
     public Cursor query(String sql,String[] args){
