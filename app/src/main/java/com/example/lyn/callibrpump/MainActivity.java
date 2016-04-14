@@ -1,6 +1,7 @@
 package com.example.lyn.callibrpump;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,6 +14,8 @@ import android.widget.EditText;
 
 import com.beardedhen.androidbootstrap.TypefaceProvider;
 
+import lyn.librpump.model.LiBrPumpDBHelper;
+
 public class MainActivity extends AppCompatActivity {
 
     public final static String EXTRA_MESSAGE = "com.example.lyn.callibrpump.MESSAGE";
@@ -21,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        LiBrPumpDBHelper db = new LiBrPumpDBHelper(this);
+
 
         //bootstrap
         TypefaceProvider.registerDefaultIconSets();
@@ -38,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(createPumpIntent);
             }
         });
+
+
     }
 
     @Override

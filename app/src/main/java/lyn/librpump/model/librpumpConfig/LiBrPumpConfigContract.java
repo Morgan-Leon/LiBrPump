@@ -27,6 +27,8 @@ public final class LiBrPumpConfigContract {
 //        PRIMARY KEY(id)
 //        );
         public static final String TABLE_NAME = "LiBrPump_config";
+        public static final String COLUMN_NAME_NULLABLE = "null";
+
         public static final String COLUMN_NAME_TWAI = "Twai";
         public static final String COLUMN_NAME_TWCO = "Twco";
         public static final String COLUMN_NAME_TWEI = "Twei";

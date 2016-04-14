@@ -1,6 +1,8 @@
 package lyn.librpump.model;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import lyn.librpump.model.librpump.LiBrPumpContract.*;
@@ -60,16 +62,80 @@ public class LiBrPumpDBHelper extends SQLiteOpenHelper{
                     LiBrPumpConfigEntry.COLUMN_NAME_MODIFICATION_TIME + INTEGER_TYPE+ COMMA_SEP +
                     " )";
 
+
+//    FOREIGN KEY(`Field1`) REFERENCES LiBr.id
     private static final String SQL_CREATE_ENTRIES_LIBRPUMP =
             "CREATE TABLE " + LiBrPumpEntry.TABLE_NAME + " (" +
                     LiBrPumpEntry._ID + " INTEGER PRIMARY KEY," +
-                    LiBrPumpEntry.COLUMN_NAME_ID + TEXT_TYPE + COMMA_SEP +
-                    LiBrPumpEntry.COLUMN_NAME_TITLE + TEXT_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_T1I + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_P1I + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_H1I + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_X1I + NUMERIC_TYPE + COMMA_SEP +
+
+                    LiBrPumpEntry.COLUMN_NAME_T1O + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_P1O + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_H1O + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_X1O + NUMERIC_TYPE + COMMA_SEP +
+
+                    LiBrPumpEntry.COLUMN_NAME_T2O + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_P2O + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_H2O + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_X2O + NUMERIC_TYPE + COMMA_SEP +
+
+                    LiBrPumpEntry.COLUMN_NAME_T6I + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_P6I + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_H6I + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_X6I + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_T3O + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_P3O + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_H3O + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_X3O + NUMERIC_TYPE + COMMA_SEP +
+
+                    LiBrPumpEntry.COLUMN_NAME_T4WO + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_P4WO + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_H4WO + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_X4WO + NUMERIC_TYPE + COMMA_SEP +
+
+                    LiBrPumpEntry.COLUMN_NAME_T4O + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_P4O + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_H4O + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_X4O + NUMERIC_TYPE + COMMA_SEP +
+
+                    LiBrPumpEntry.COLUMN_NAME_T5I + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_P5I + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_H5I + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_X5I + NUMERIC_TYPE + COMMA_SEP +
+
+                    LiBrPumpEntry.COLUMN_NAME_T7O + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_P7O + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_H7O + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_X7O + NUMERIC_TYPE + COMMA_SEP +
+
+                    LiBrPumpEntry.COLUMN_NAME_T8O + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_P8O + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_H8O + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_X8O + NUMERIC_TYPE + COMMA_SEP +
+
+                    LiBrPumpEntry.COLUMN_NAME_Q_G + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_Q_E + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_Q_C + NUMERIC_TYPE + COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_Q_A + NUMERIC_TYPE + COMMA_SEP +
+
+                    LiBrPumpEntry.COLUMN_NAME_COP + NUMERIC_TYPE + COMMA_SEP +
+
+                    LiBrPumpEntry.COLUMN_NAME_CREATE_TIME + INTEGER_TYPE+ COMMA_SEP +
+                    LiBrPumpEntry.COLUMN_NAME_MODIFICATION_TIME + INTEGER_TYPE+ COMMA_SEP +
+
+                    "FOREIGN KEY(" +
+                    LiBrPumpEntry.COLUMN_NAME_CONFIG_ID +
+                    ") REFERENCES " +
+                    LiBrPumpConfigEntry.TABLE_NAME + "." + LiBrPumpConfigEntry._ID +
+                    
             " )";
 
 
     private static final String SQL_DELETE_ENTRIES=
-            "DROP TABLE IF EXISTS " + LiBrPumpEntry.TABLE_NAME;
+            "DROP TABLE IF EXISTS " + LiBrPumpConfigEntry.TABLE_NAME + COMMA_SEP + LiBrPumpEntry.TABLE_NAME;
 
     public LiBrPumpDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -78,6 +144,7 @@ public class LiBrPumpDBHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_ENTRIES_LIBRPUMP_CONFIG);
+        db.execSQL(SQL_CREATE_ENTRIES_LIBRPUMP);
     }
 
     @Override
@@ -89,5 +156,17 @@ public class LiBrPumpDBHelper extends SQLiteOpenHelper{
     }
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onUpgrade(db, oldVersion, newVersion);
+    }
+
+    public long insertToConfig(ContentValues values){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long newRowId = db.insert(LiBrPumpConfigEntry.TABLE_NAME,LiBrPumpConfigEntry.COLUMN_NAME_NULLABLE,values);
+        return  newRowId;
+    }
+
+    public Cursor query(String sql,String[] args){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql,args);
+        return  cursor;
     }
 }
