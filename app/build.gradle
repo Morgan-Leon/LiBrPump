@@ -16,7 +16,7 @@ android {
 
     //The minimum API required by your project.//
         minSdkVersion 21
-
+2
     //The version of Android you’re developing your application for.//
         targetSdkVersion 23
         versionCode 1
