@@ -12,7 +12,7 @@ android {
     defaultConfig {
 
     //Defines your application’s ID. Note, earlier versions of the Android plugin used ‘packageName’ instead of ‘applicationID.’//
-        applicationId "com.example.lyn.callibrpump"
+        applicationId "lyn.librpump"
 
     //The minimum API required by your project.//
         minSdkVersion 21
