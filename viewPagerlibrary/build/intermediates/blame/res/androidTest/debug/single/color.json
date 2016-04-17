@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/lyn/Github/imooc-tab04/viewPagerlibrary/build/intermediates/res/merged/androidTest/debug/color/vpi__dark_theme.xml",
+        "source": "/Users/lyn/Github/imooc-tab04/viewPagerlibrary/build/intermediates/bundles/debug/res/color/vpi__dark_theme.xml"
+    },
+    {
+        "merged": "/Users/lyn/Github/imooc-tab04/viewPagerlibrary/build/intermediates/res/merged/androidTest/debug/color/vpi__light_theme.xml",
+        "source": "/Users/lyn/Github/imooc-tab04/viewPagerlibrary/build/intermediates/bundles/debug/res/color/vpi__light_theme.xml"
+    },
+    {
+        "merged": "/Users/lyn/AndroidStudio/LiBrPump/viewPagerlibrary/build/intermediates/res/merged/androidTest/debug/color/vpi__light_theme.xml",
+        "source": "/Users/lyn/AndroidStudio/LiBrPump/viewPagerlibrary/build/intermediates/bundles/debug/res/color/vpi__light_theme.xml"
+    },
+    {
+        "merged": "/Users/lyn/AndroidStudio/LiBrPump/viewPagerlibrary/build/intermediates/res/merged/androidTest/debug/color/vpi__dark_theme.xml",
+        "source": "/Users/lyn/AndroidStudio/LiBrPump/viewPagerlibrary/build/intermediates/bundles/debug/res/color/vpi__dark_theme.xml"
+    }
+]
