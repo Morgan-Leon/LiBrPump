@@ -220,7 +220,7 @@ public class Pump {
         this.c_tdr = b/(a+b);
         this.deltaT_w1 = this.deltaT_w * this.a_tdr;
         this.deltaT_w2 = this.deltaT_w * this.c_tdr;
-    };
+    }
 
     public double calQe(){
         this.Q_e = e.getH1o() - c.getH3o();

@@ -32,7 +32,7 @@ public class HeatExchanger {
 
         this.T7o = calT7o(H7o, X7o);
 
-    };
+    }
 
 
     public double calT8o(double t){
