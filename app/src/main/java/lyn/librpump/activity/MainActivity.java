@@ -3,6 +3,7 @@ package lyn.librpump.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -11,20 +12,27 @@ import android.view.MenuItem;
 import android.widget.EditText;
 
 import com.beardedhen.androidbootstrap.TypefaceProvider;
+import com.viewpagerindicator.TabPageIndicator;
+
 import lyn.callibrpump.R;
 
+import lyn.librpump.adapter.TabAdapter;
 import lyn.librpump.model.LiBrPumpDBHelper;
 
 public class MainActivity extends AppCompatActivity {
 
-    public final static String EXTRA_MESSAGE = "com.example.lyn.callibrpump.MESSAGE";
+    public final static String EXTRA_MESSAGE = "lyn.callibrpump.MESSAGE";
+
+    private ViewPager mViewPager;
+    private TabPageIndicator mTabPageIndicator;
+    private TabAdapter mAdapter ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        LiBrPumpDBHelper db = new LiBrPumpDBHelper(this);
+//        LiBrPumpDBHelper db = new LiBrPumpDBHelper(this);
 
 
         //bootstrap
@@ -44,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        initView();
 
     }
 
@@ -80,13 +89,24 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
     /** Called when the user clicks the Send button */
-    public void sendMessage(View view) {
-        // Do something in response to button
-        Intent intent = new Intent(this,DisplayMessageActivity.class);
-        EditText editText = (EditText) findViewById(R.id.edit_message);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
+//    public void sendMessage(View view) {
+//        // Do something in response to button
+//        Intent intent = new Intent(this,DisplayMessageActivity.class);
+//        EditText editText = (EditText) findViewById(R.id.edit_message);
+//        String message = editText.getText().toString();
+//        intent.putExtra(EXTRA_MESSAGE, message);
+//        startActivity(intent);
+//    }
+
+    private void initView()
+    {
+        mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
+        mTabPageIndicator = (TabPageIndicator) findViewById(R.id.id_indicator);
+        mAdapter = new TabAdapter(getSupportFragmentManager());
+        mViewPager.setAdapter(mAdapter);
+
+        mTabPageIndicator.setViewPager(mViewPager, 0);
     }
+
 }
 

@@ -47,6 +47,7 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
     compile project(':viewPagerlibrary')
+//    compile 'com.viewpagerindicator'
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:design:23.2.1'
     //To create more dependencies, add them to the depencies closure.//
