@@ -1,16 +1,24 @@
 package lyn.librpump.fragment;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
+
 import lyn.callibrpump.R;
+import lyn.librpump.kernel.pump.Pump;
 import lyn.librpump.model.LiBrPumpDBHelper;
+import lyn.librpump.model.librpump.LiBrPumpContract;
+import lyn.librpump.model.librpumpConfig.LiBrPumpConfigContract;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,6 +40,7 @@ public class CalCOPFragment extends Fragment {
 
     LiBrPumpDBHelper dbHelper;
     EditText t_wai, t_wco, t_wei, t_weo;
+    BootstrapButton clearInputButton, createPumpButton;
 
     private OnFragmentInteractionListener mListener;
 
@@ -70,7 +79,73 @@ public class CalCOPFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cal_cop, container, false);
+        View view = inflater.inflate(R.layout.fragment_cal_cop, container, false);
+
+        t_wai = (EditText) view.findViewById(R.id.t_wai);
+
+
+        t_wco = (EditText) view.findViewById(R.id.t_wco);
+
+
+        t_wei = (EditText) view.findViewById(R.id.t_wei);
+
+
+        t_weo = (EditText) view.findViewById(R.id.t_weo);
+
+        clearInputButton = (BootstrapButton) view.findViewById(R.id.clearInput);
+
+        createPumpButton = (BootstrapButton) view.findViewById(R.id.createPump);
+
+        View.OnClickListener clearInputListener = new View.OnClickListener() {
+            public void onClick(View v) {
+                t_wai.setText("");
+                t_wco.setText("");
+                t_wei.setText("");
+                t_weo.setText("");
+            }
+        };
+
+        clearInputButton.setOnClickListener(clearInputListener);
+
+        View.OnClickListener createPumpListener = new View.OnClickListener() {
+            public void onClick(View v) {
+                //读取数据
+                double Twai = Double.valueOf(t_wai.getText().toString());
+
+                double Twco = Double.valueOf(t_wco.getText().toString());
+
+                double Twei = Double.valueOf(t_wei.getText().toString());
+
+                double Tweo = Double.valueOf(t_weo.getText().toString());
+
+                Pump pump = new Pump(Twai,Twco,Twei,Tweo);
+
+                System.out.println("======================================");
+
+                System.out.println(Twai + " " + Twco + " " + Twei + " " + Tweo + " ");
+
+                System.out.println("======================================");
+
+
+
+                Snackbar.make(v, "COP = " + pump.getCOP(), Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+
+//                ContentValues pumpConfigValues ,pumpValues;
+//
+//                pumpConfigValues = LiBrPumpConfigContract.LiBrPumpConfigEntry.generateValues(pump);
+//                pumpValues = LiBrPumpContract.LiBrPumpEntry.generateValues(pump);
+//
+//                System.out.println(pumpConfigValues);
+//                System.out.println(pumpValues);
+//
+//                dbHelper.insert(pumpConfigValues, pumpValues);
+            }
+        };
+
+        createPumpButton.setOnClickListener(createPumpListener);
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -111,4 +186,8 @@ public class CalCOPFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
 }
+
+
