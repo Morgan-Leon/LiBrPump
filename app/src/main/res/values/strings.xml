@@ -12,4 +12,11 @@
     <string name="commit">确认</string>
     <string name="clearInput">重置</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_pump_fragment">Hello Pump fragment</string>
+
+    <string name="hello_cal_cop_fragment">Hello COP fragment</string>
+
+    <string name="hello_cal_libr_fragment">Hello LiBr fragment</string>
+
 </resources>

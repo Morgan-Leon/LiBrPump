@@ -3,6 +3,7 @@ package lyn.librpump.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -14,9 +15,15 @@ import android.widget.EditText;
 import com.beardedhen.androidbootstrap.TypefaceProvider;
 import com.viewpagerindicator.TabPageIndicator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import lyn.callibrpump.R;
 
 import lyn.librpump.adapter.TabAdapter;
+import lyn.librpump.fragment.CalCOPFragment;
+import lyn.librpump.fragment.CalLiBrFragment;
+import lyn.librpump.fragment.PumpFragment;
 import lyn.librpump.model.LiBrPumpDBHelper;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,18 +33,17 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private TabPageIndicator mTabPageIndicator;
     private TabAdapter mAdapter ;
+    private List<Fragment> fragmentList;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        LiBrPumpDBHelper db = new LiBrPumpDBHelper(this);
-
-
         //bootstrap
         TypefaceProvider.registerDefaultIconSets();
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -100,9 +106,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView()
     {
+        fragmentList = new ArrayList<Fragment>();
+        Fragment calCOPFragment = new CalCOPFragment();
+        Fragment calLiBrFragment = new CalLiBrFragment();
+        Fragment pumpFragment = new PumpFragment();
+
+        fragmentList.add(calCOPFragment);
+        fragmentList.add(pumpFragment);
+        fragmentList.add(calLiBrFragment);
+
         mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
         mTabPageIndicator = (TabPageIndicator) findViewById(R.id.id_indicator);
-        mAdapter = new TabAdapter(getSupportFragmentManager());
+        mAdapter = new TabAdapter(getSupportFragmentManager(),fragmentList);
         mViewPager.setAdapter(mAdapter);
 
         mTabPageIndicator.setViewPager(mViewPager, 0);
