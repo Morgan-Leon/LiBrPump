@@ -1,6 +1,7 @@
 package lyn.librpump.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.beardedhen.androidbootstrap.TypefaceProvider;
 import com.viewpagerindicator.TabPageIndicator;
 
@@ -116,11 +118,13 @@ public class MainActivity extends AppCompatActivity {
         fragmentList.add(calLiBrFragment);
 
         mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
-        mTabPageIndicator = (TabPageIndicator) findViewById(R.id.id_indicator);
+//        mTabPageIndicator = (TabPageIndicator) findViewById(R.id.id_indicator);
+        PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         mAdapter = new TabAdapter(getSupportFragmentManager(),fragmentList);
         mViewPager.setAdapter(mAdapter);
-
-        mTabPageIndicator.setViewPager(mViewPager, 0);
+        tabs.setIndicatorColor(Color.parseColor("#C5CAE9"));
+        tabs.setShouldExpand(true);
+        tabs.setViewPager(mViewPager);
     }
 
 }
