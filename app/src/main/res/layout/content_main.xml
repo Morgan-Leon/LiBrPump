@@ -14,21 +14,27 @@
         <!--android:text="Hello World!" />-->
 
 
-    <EditText android:id="@+id/edit_message"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/edit_message" />
+    <!--<EditText android:id="@+id/edit_message"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="@string/edit_message" />-->
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_send"
-        app:bootstrapBrand="success"
-        app:buttonMode="regular"
-        app:showOutline="false"
-        app:roundedCorners="true"
-        android:onClick="sendMessage" />
+    <!--<com.beardedhen.androidbootstrap.BootstrapButton-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/button_send"-->
+        <!--app:bootstrapBrand="success"-->
+        <!--app:buttonMode="regular"-->
+        <!--app:showOutline="false"-->
+        <!--app:roundedCorners="true"-->
+        <!--android:onClick="sendMessage" />-->
+
+    <com.astuetz.PagerSlidingTabStrip
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="48dip" />
+
 
 
 
