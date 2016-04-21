@@ -47,9 +47,8 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
     compile project(':viewPagerlibrary')
-//    compile 'com.viewpagerindicator'
-    //To create more dependencies, add them to the depencies closure.//
 
+    compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:design:23.2.1'
     compile 'com.beardedhen:androidbootstrap:2.1.0'

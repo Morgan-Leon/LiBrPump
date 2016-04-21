@@ -68,12 +68,12 @@
         "source": "/Users/lyn/Github/imooc-tab04/viewPagerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-xhdpi-v4/abc_btn_rating_star_off_mtrl_alpha.png"
     },
     {
-        "merged": "/Users/lyn/Github/imooc-tab04/viewPagerlibrary/build/intermediates/res/merged/release/drawable-xhdpi-v4/abc_ic_star_black_36dp.png",
-        "source": "/Users/lyn/Github/imooc-tab04/viewPagerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-xhdpi-v4/abc_ic_star_black_36dp.png"
-    },
-    {
         "merged": "/Users/lyn/AndroidStudio/LiBrPump/viewPagerlibrary/build/intermediates/res/merged/release/drawable-xhdpi-v4/vpi__tab_unselected_pressed_holo.9.png",
         "source": "/Users/lyn/AndroidStudio/LiBrPump/viewPagerlibrary/src/main/res/drawable-xhdpi/vpi__tab_unselected_pressed_holo.9.png"
+    },
+    {
+        "merged": "/Users/lyn/Github/imooc-tab04/viewPagerlibrary/build/intermediates/res/merged/release/drawable-xhdpi-v4/abc_ic_star_black_36dp.png",
+        "source": "/Users/lyn/Github/imooc-tab04/viewPagerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-xhdpi-v4/abc_ic_star_black_36dp.png"
     },
     {
         "merged": "/Users/lyn/Github/imooc-tab04/viewPagerlibrary/build/intermediates/res/merged/release/drawable-xhdpi-v4/abc_popup_background_mtrl_mult.9.png",

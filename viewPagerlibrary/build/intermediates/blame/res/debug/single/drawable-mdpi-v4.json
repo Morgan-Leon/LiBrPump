@@ -68,12 +68,12 @@
         "source": "/Users/lyn/AndroidStudio/LiBrPump/viewPagerlibrary/src/main/res/drawable-mdpi/vpi__tab_unselected_focused_holo.9.png"
     },
     {
-        "merged": "/Users/lyn/Github/imooc-tab04/viewPagerlibrary/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png",
-        "source": "/Users/lyn/Github/imooc-tab04/viewPagerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-mdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png"
-    },
-    {
         "merged": "/Users/lyn/Github/imooc-tab04/viewPagerlibrary/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_popup_background_mtrl_mult.9.png",
         "source": "/Users/lyn/Github/imooc-tab04/viewPagerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-mdpi-v4/abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/lyn/Github/imooc-tab04/viewPagerlibrary/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png",
+        "source": "/Users/lyn/Github/imooc-tab04/viewPagerlibrary/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/drawable-mdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png"
     },
     {
         "merged": "/Users/lyn/Github/imooc-tab04/viewPagerlibrary/build/intermediates/res/merged/debug/drawable-mdpi-v4/vpi__tab_selected_pressed_holo.9.png",
