@@ -19,8 +19,8 @@ android {
         2
         //The version of Android you’re developing your application for.//
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
     }
 
 //‘BuildTypes’ controls how your app is built and packaged.
@@ -38,16 +38,13 @@ android {
 }
 
 dependencies {
-
-//Declares the dependencies for the current module./
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-//Although you can add JAR files by compiling them individually,
-// this can be time-consuming if you have lots of JARs.
-// In this example, we’re telling Gradle to add all the JAR files in the app/libs folder.//
-
+    //Declares the dependencies for the current module./
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //Although you can add JAR files by compiling them individually,
+    // this can be time-consuming if you have lots of JARs.
+    // In this example, we’re telling Gradle to add all the JAR files in the app/libs folder.//
     testCompile 'junit:junit:4.12'
-    compile project(':viewPagerlibrary')
-
+    //    compile project(':viewPagerlibrary')
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:design:23.2.1'

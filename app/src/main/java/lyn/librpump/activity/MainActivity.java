@@ -11,29 +11,25 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.beardedhen.androidbootstrap.TypefaceProvider;
-import com.viewpagerindicator.TabPageIndicator;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import lyn.callibrpump.R;
 
+import lyn.callibrpump.R;
 import lyn.librpump.adapter.TabAdapter;
 import lyn.librpump.fragment.CalCOPFragment;
 import lyn.librpump.fragment.CalLiBrFragment;
 import lyn.librpump.fragment.PumpFragment;
-import lyn.librpump.model.LiBrPumpDBHelper;
 
 public class MainActivity extends AppCompatActivity {
 
     public final static String EXTRA_MESSAGE = "lyn.callibrpump.MESSAGE";
 
     private ViewPager mViewPager;
-    private TabPageIndicator mTabPageIndicator;
     private TabAdapter mAdapter ;
     private List<Fragment> fragmentList;
 
