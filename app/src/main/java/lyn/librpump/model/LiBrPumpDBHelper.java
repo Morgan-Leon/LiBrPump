@@ -45,6 +45,10 @@ public class LiBrPumpDBHelper extends SQLiteOpenHelper{
     private static final String SQL_CREATE_ENTRIES_LIBRPUMP_CONFIG  =
             "CREATE TABLE " + LiBrPumpConfigEntry.TABLE_NAME + " (" +
                     LiBrPumpConfigEntry._ID + " INTEGER PRIMARY KEY," +
+
+                    LiBrPumpConfigEntry.COLUMN_NAME_TITLE + TEXT_TYPE + COMMA_SEP +
+                    LiBrPumpConfigEntry.COLUMN_NAME_ADDRESS + TEXT_TYPE + COMMA_SEP +
+
                     LiBrPumpConfigEntry.COLUMN_NAME_TWAI + NUMERIC_TYPE + COMMA_SEP +
                     LiBrPumpConfigEntry.COLUMN_NAME_TWCO + NUMERIC_TYPE + COMMA_SEP +
                     LiBrPumpConfigEntry.COLUMN_NAME_TWEI + NUMERIC_TYPE + COMMA_SEP +

@@ -23,7 +23,7 @@ public class TabAdapter extends FragmentPagerAdapter
 
 
     public static String[] TITLES = new String[]
-            { "计算", "热泵", "溴化锂" };
+            { "计算", "热泵", "溴化锂" ,"item"};
 
     public TabAdapter(FragmentManager fm, List<Fragment> fragmentList)
     {

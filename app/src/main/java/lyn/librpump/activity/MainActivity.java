@@ -23,9 +23,10 @@ import lyn.callibrpump.R;
 import lyn.librpump.adapter.TabAdapter;
 import lyn.librpump.fragment.CalCOPFragment;
 import lyn.librpump.fragment.CalLiBrFragment;
+import lyn.librpump.fragment.ItemFragment;
 import lyn.librpump.fragment.PumpFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     public final static String EXTRA_MESSAGE = "lyn.callibrpump.MESSAGE";
 
@@ -55,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(createPumpIntent);
             }
         });
+
+
 
         initView();
 
@@ -108,10 +111,13 @@ public class MainActivity extends AppCompatActivity {
         Fragment calCOPFragment = new CalCOPFragment();
         Fragment calLiBrFragment = new CalLiBrFragment();
         Fragment pumpFragment = new PumpFragment();
+        Fragment itemFragment = new ItemFragment();
 
         fragmentList.add(calCOPFragment);
         fragmentList.add(pumpFragment);
         fragmentList.add(calLiBrFragment);
+        fragmentList.add(itemFragment);
+
 
         mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
 //        mTabPageIndicator = (TabPageIndicator) findViewById(R.id.id_indicator);

@@ -7,6 +7,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SimpleAdapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 import lyn.callibrpump.R;
 
@@ -65,7 +72,34 @@ public class PumpFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pump, container, false);
+        View view = inflater.inflate(R.layout.fragment_pump, container, false);
+        SimpleAdapter adapter = new SimpleAdapter(this.getContext(),this.getListData(),R.layout.pump_list,
+                new String[]{"title","info","date"},
+                new int[]{R.id.title,R.id.info,R.id.date});
+
+//        setListAdapter(adapter);
+        return view;
+    }
+
+    private List<Map<String,Object>> getListData(){
+        List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+
+        Map<String,Object> map = new HashMap<String,Object>();
+
+        map.put("title", "G1");
+        map.put("info", "google 1");
+        map.put("data", "2016年4月22日");
+
+        list.add(map);
+
+        map = new HashMap<String, Object>();
+        map.put("title", "G2");
+        map.put("info", "google 2");
+        map.put("data", "2016年");
+        list.add(map);
+
+        return  list;
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
