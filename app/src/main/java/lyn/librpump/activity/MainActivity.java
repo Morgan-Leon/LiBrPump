@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.beardedhen.androidbootstrap.TypefaceProvider;
+import com.gc.materialdesign.views.ButtonFloat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity  {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        ButtonFloat fab = (ButtonFloat) findViewById(R.id.fab);
         final Intent  createPumpIntent = new Intent(this, CreatePumpActivity.class);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

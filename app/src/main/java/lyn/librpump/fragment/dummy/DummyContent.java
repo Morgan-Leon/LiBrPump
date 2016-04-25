@@ -31,20 +31,20 @@ public class DummyContent {
     private Cursor c;
 
     public DummyContent(LiBrPumpDBHelper dbHelper){
-        this.dbHelper = dbHelper;
-        db = dbHelper.getReadableDatabase();
-        String[] projection = {
-                LiBrPumpConfigEntry._ID,
-                LiBrPumpConfigEntry.COLUMN_NAME_TITLE,
-                LiBrPumpConfigEntry.COLUMN_NAME_MODIFICATION_TIME
-        };
-        String sortOrder =
-                LiBrPumpConfigEntry.COLUMN_NAME_CREATE_TIME + " DESC";
-        String selection = LiBrPumpConfigEntry._ID + "> ";
-        String selectionArgs[] = {"0"};
-
-        c = db.query(LiBrPumpConfigEntry.TABLE_NAME,projection,selection,selectionArgs,null,null,sortOrder);
-        c.getString(c.getColumnIndexOrThrow(LiBrPumpConfigEntry.COLUMN_NAME_MODIFICATION_TIME));
+//        this.dbHelper = dbHelper;
+//        db = dbHelper.getReadableDatabase();
+//        String[] projection = {
+//                LiBrPumpConfigEntry._ID,
+//                LiBrPumpConfigEntry.COLUMN_NAME_TITLE,
+//                LiBrPumpConfigEntry.COLUMN_NAME_MODIFICATION_TIME
+//        };
+//        String sortOrder =
+//                LiBrPumpConfigEntry.COLUMN_NAME_CREATE_TIME + " DESC";
+//        String selection = LiBrPumpConfigEntry._ID + "> ";
+//        String selectionArgs[] = {"0"};
+//
+//        c = db.query(LiBrPumpConfigEntry.TABLE_NAME,projection,selection,selectionArgs,null,null,sortOrder);
+//        c.getString(c.getColumnIndexOrThrow(LiBrPumpConfigEntry.COLUMN_NAME_MODIFICATION_TIME));
     }
 
 
