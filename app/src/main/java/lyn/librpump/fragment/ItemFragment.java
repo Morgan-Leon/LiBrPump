@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 
 import lyn.callibrpump.R;
+import lyn.librpump.activity.CreatePumpActivity;
 import lyn.librpump.fragment.dummy.DummyContent;
 import lyn.librpump.fragment.dummy.DummyContent.DummyItem;
 import lyn.librpump.model.LiBrPumpDBHelper;
@@ -37,11 +38,11 @@ public class ItemFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public ItemFragment() {
-        dbHelper = new LiBrPumpDBHelper(getContext());
-        dummyContent = new DummyContent(dbHelper);
-    }
-
+//    public ItemFragment() {
+//        dbHelper = new LiBrPumpDBHelper(getActivity());
+//        dummyContent = new DummyContent(dbHelper);
+//    }
+//
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
@@ -57,6 +58,7 @@ public class ItemFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
@@ -66,6 +68,8 @@ public class ItemFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_list, container, false);
+        dbHelper = new LiBrPumpDBHelper(getActivity().getApplicationContext());
+        dummyContent = new DummyContent(dbHelper);
 
         // Set the adapter
         if (view instanceof RecyclerView) {

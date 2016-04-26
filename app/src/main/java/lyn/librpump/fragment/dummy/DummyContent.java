@@ -7,6 +7,7 @@ import lyn.librpump.model.librpumpConfig.LiBrPumpConfigContract.*;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,25 +27,52 @@ public class DummyContent {
      * An array of sample (dummy) items.
      */
     public static final List<DummyItem> ITEMS = new ArrayList<DummyItem>();
-    private LiBrPumpDBHelper dbHelper;
-    private SQLiteDatabase db;
-    private Cursor c;
+    private static LiBrPumpDBHelper dbHelper;
+    private static SQLiteDatabase db;
+    private static Cursor cursor;
 
-    public DummyContent(LiBrPumpDBHelper dbHelper){
-//        this.dbHelper = dbHelper;
-//        db = dbHelper.getReadableDatabase();
-//        String[] projection = {
-//                LiBrPumpConfigEntry._ID,
-//                LiBrPumpConfigEntry.COLUMN_NAME_TITLE,
-//                LiBrPumpConfigEntry.COLUMN_NAME_MODIFICATION_TIME
-//        };
-//        String sortOrder =
-//                LiBrPumpConfigEntry.COLUMN_NAME_CREATE_TIME + " DESC";
-//        String selection = LiBrPumpConfigEntry._ID + "> ";
-//        String selectionArgs[] = {"0"};
+    public  DummyContent(LiBrPumpDBHelper dbHelper){
+
+        ITEMS.removeAll(ITEMS);
+
+        this.dbHelper = dbHelper;
+        db = this.dbHelper.getReadableDatabase();
+
+        String[] projection = {
+                LiBrPumpConfigEntry._ID,
+                LiBrPumpConfigEntry.COLUMN_NAME_TWAI,
+                LiBrPumpConfigEntry.COLUMN_NAME_TWCO,
+                LiBrPumpConfigEntry.COLUMN_NAME_TWEI,
+                LiBrPumpConfigEntry.COLUMN_NAME_TWEO,
+                LiBrPumpConfigEntry.COLUMN_NAME_TITLE,
+                LiBrPumpConfigEntry.COLUMN_NAME_MODIFICATION_TIME
+        };
+        String sortOrder =
+                LiBrPumpConfigEntry.COLUMN_NAME_CREATE_TIME + " DESC";
+
+        cursor = db.query(LiBrPumpConfigEntry.TABLE_NAME,projection,null,null,null,null,sortOrder);
+        if(cursor.moveToFirst()) {
+            System.out.print("CURSOR ====" +  cursor.getCount());
+            int i = 0;
+//          for循环易错
+            while (cursor.moveToNext()){
+                i++;
+                String title = cursor.getString(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TITLE));
+                Double iTwai = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWAI));
+                Double iTwco = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWCO));
+                Double iTwei = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWEI));
+                Double iTweo = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWEO));
+
+                addItem(createDummyItem(i, title, iTwai.toString(), iTwco.toString(), iTwei.toString(), iTweo.toString()));
+            }
+
+//            for(int i= 0; i < cursor.getCount(); i++){
 //
-//        c = db.query(LiBrPumpConfigEntry.TABLE_NAME,projection,selection,selectionArgs,null,null,sortOrder);
-//        c.getString(c.getColumnIndexOrThrow(LiBrPumpConfigEntry.COLUMN_NAME_MODIFICATION_TIME));
+//            }
+
+
+        }
+
     }
 
 
@@ -53,13 +81,31 @@ public class DummyContent {
      */
     public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
 
-    private static final int COUNT = 25;
+//    private static final int COUNT = 25;
 
     static {
         // Add some sample items.
-        for (int i = 1; i <= COUNT; i++) {
-            addItem(createDummyItem(i));
-        }
+//        String[] projection = {
+//                LiBrPumpConfigEntry._ID,
+//                LiBrPumpConfigEntry.COLUMN_NAME_TWAI,
+//                LiBrPumpConfigEntry.COLUMN_NAME_TITLE,
+//                LiBrPumpConfigEntry.COLUMN_NAME_MODIFICATION_TIME
+//        };
+//        String sortOrder =
+//                LiBrPumpConfigEntry.COLUMN_NAME_CREATE_TIME + " DESC";
+//        cursor = db.query(LiBrPumpConfigEntry.TABLE_NAME,projection,null,null,null,null,sortOrder);
+//        if(cursor.moveToFirst()) {
+//            for (int i = 1; i <= cursor.getCount(); i++) {
+//                cursor.move(i);
+//                String title = cursor.getString(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TITLE));
+//                Double iTwai = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWAI));
+//                Double iTwco = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWCO));
+//                Double iTwei = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWEI));
+//                Double iTweo = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWEO));
+//
+//                addItem(createDummyItem(i, title, iTwai.toString(), iTwco.toString(), iTwei.toString(), iTweo.toString()));
+//            }
+//        }
     }
 
     private static void addItem(DummyItem item) {
@@ -67,36 +113,48 @@ public class DummyContent {
         ITEM_MAP.put(item.id, item);
     }
 
-    private static DummyItem createDummyItem(int position) {
-        return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
+    private static DummyItem createDummyItem(int position, String title, String iTwai, String iTwco, String iTwei, String iTweo) {
+
+        return new DummyItem(String.valueOf(position), title, iTwai, iTwco, iTwei, iTweo);
     }
 
-    private static String makeDetails(int position) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Details about Item: ").append(position);
-        for (int i = 0; i < position; i++) {
-            builder.append("\nMore details information here.");
-        }
-        return builder.toString();
-    }
+//    private static String makeDetails(int position) {
+//        StringBuilder builder = new StringBuilder();
+//        builder.append("Details about Item: ").append(position);
+//        for (int i = 0; i < position; i++) {
+//            builder.append("\nMore details information here.");
+//        }
+//        return builder.toString();
+//    }
 
     /**
      * A dummy item representing a piece of content.
      */
     public static class DummyItem {
         public final String id;
-        public final String content;
-        public final String details;
+        public final String title;
+        public final String iTwai;
+        public final String iTwco;
+        public final String iTwei;
+        public final String iTweo;
 
-        public DummyItem(String id, String content, String details) {
+//        public DummyItem(String id, String content, String details) {
+//            this.id = id;
+//            this.content = content;
+//            this.details = details;
+//        }
+        public DummyItem(String id, String title, String iTwai, String iTwco, String iTwei, String iTweo) {
             this.id = id;
-            this.content = content;
-            this.details = details;
+            this.title = title;
+            this.iTwai = iTwai;
+            this.iTwco = iTwco;
+            this.iTwei = iTwei;
+            this.iTweo = iTweo;
         }
 
         @Override
         public String toString() {
-            return content;
+            return title;
         }
     }
 }

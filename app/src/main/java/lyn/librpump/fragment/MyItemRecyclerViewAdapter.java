@@ -38,8 +38,12 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
-        holder.mDetailsView.setText(mValues.get(position).details);
+        holder.mTitleView.setText(mValues.get(position).title);
+        holder.mTwaiView.setText("Twai = " + mValues.get(position).iTwai + "℃");
+        holder.mTwcoView.setText("Twco = " + mValues.get(position).iTwco + "℃");
+        holder.mTweiView.setText("Twei = " +mValues.get(position).iTwei + "℃");
+        holder.mTweoView.setText("Tweo = " +mValues.get(position).iTweo + "℃");
+
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,21 +65,27 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final TextView mIdView;
-        public final TextView mContentView;
-        public final TextView mDetailsView;
+        public final TextView mTitleView;
+        public final TextView mTwaiView;
+        public final TextView mTwcoView;
+        public final TextView mTweiView;
+        public final TextView mTweoView;
         public DummyItem mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
             mIdView = (TextView) view.findViewById(R.id.id);
-            mContentView = (TextView) view.findViewById(R.id.content);
-            mDetailsView = (TextView) view.findViewById(R.id.details);
+            mTitleView = (TextView) view.findViewById(R.id.title);
+            mTwaiView = (TextView) view.findViewById(R.id.iTwai);
+            mTwcoView = (TextView) view.findViewById(R.id.iTwco);
+            mTweiView = (TextView) view.findViewById(R.id.iTwei);
+            mTweoView = (TextView) view.findViewById(R.id.iTweo);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + mTitleView.getText() + "'";
         }
     }
 }
