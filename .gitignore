@@ -1,0 +1,12 @@
+
+*.lock
+
+*.bin
+
+.idea/workspace.xml
+
+.gradle/2.8/*
+
+.idea/misc.xml
+
+.gitignore

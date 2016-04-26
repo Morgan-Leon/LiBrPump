@@ -2,33 +2,56 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_main">
 
-    <!--<TextView-->
+    <!--<EditText android:id="@+id/edit_message"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="@string/edit_message" />-->
+
+    <!--<com.beardedhen.androidbootstrap.BootstrapButton-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->
-        <!--android:text="Hello World!" />-->
+        <!--android:text="@string/button_send"-->
+        <!--app:bootstrapBrand="success"-->
+        <!--app:buttonMode="regular"-->
+        <!--app:showOutline="false"-->
+        <!--app:roundedCorners="true"-->
+        <!--android:onClick="sendMessage" />-->
+
+    <!--<com.viewpagerindicator.TabPageIndicator-->
+        <!--android:id="@+id/id_indicator"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@android:color/transparent" >-->
+    <!--</com.viewpagerindicator.TabPageIndicator>-->
+
+    <!--<android.support.v4.view.ViewPager-->
+        <!--android:id="@+id/id_viewpager"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:layout_weight="1"-->
+        <!-->-->
+    <com.astuetz.PagerSlidingTabStrip
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        />
+
+    <android.support.v4.view.ViewPager
+    android:id="@+id/id_viewpager"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1"
+        >
+    </android.support.v4.view.ViewPager>
 
 
-    <EditText android:id="@+id/edit_message"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/edit_message" />
-
-    <com.beardedhen.androidbootstrap.BootstrapButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_send"
-        app:bootstrapBrand="success"
-        app:buttonMode="regular"
-        app:showOutline="false"
-        app:roundedCorners="true"
-        android:onClick="sendMessage" />
 
 
 

@@ -6,6 +6,7 @@ import android.provider.BaseColumns;
 import java.util.Date;
 
 import lyn.librpump.kernel.pump.Pump;
+import lyn.librpump.model.librpump.LiBrPumpContract;
 import lyn.librpump.util.CommonMethod;
 
 /**
@@ -31,7 +32,10 @@ public final class LiBrPumpConfigContract {
 //        PRIMARY KEY(id)
 //        );
         public static final String TABLE_NAME = "LiBrPump_config";
-        public static final String COLUMN_NAME_NULLABLE = "null";
+
+        public static final String COLUMN_NAME_TITLE = "title";
+        public static final String COLUMN_NAME_ADDRESS = "address";
+
 
         public static final String COLUMN_NAME_TWAI = "Twai";
         public static final String COLUMN_NAME_TWCO = "Twco";
@@ -51,6 +55,9 @@ public final class LiBrPumpConfigContract {
         public static ContentValues generateValues(Pump p){
 
             ContentValues pumpConfigValues = new ContentValues();
+
+            pumpConfigValues.put(LiBrPumpConfigEntry.COLUMN_NAME_TITLE,"燕山石化");
+            pumpConfigValues.put(LiBrPumpConfigEntry.COLUMN_NAME_ADDRESS,"北京燕山");
 
             pumpConfigValues.put(LiBrPumpConfigEntry.COLUMN_NAME_TWAI, p.getTwai());
             pumpConfigValues.put(LiBrPumpConfigEntry.COLUMN_NAME_TWCO, p.getTwco());

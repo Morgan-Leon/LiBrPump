@@ -11,16 +11,16 @@ android {
 
     defaultConfig {
 
-    //Defines your application’s ID. Note, earlier versions of the Android plugin used ‘packageName’ instead of ‘applicationID.’//
+        //Defines your application’s ID. Note, earlier versions of the Android plugin used ‘packageName’ instead of ‘applicationID.’//
         applicationId "com.example.lyn.callibrpump"
 
-    //The minimum API required by your project.//
+        //The minimum API required by your project.//
         minSdkVersion 21
-2
-    //The version of Android you’re developing your application for.//
+        2
+        //The version of Android you’re developing your application for.//
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
     }
 
 //‘BuildTypes’ controls how your app is built and packaged.
@@ -38,17 +38,22 @@ android {
 }
 
 dependencies {
-
-//Declares the dependencies for the current module./
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-//Although you can add JAR files by compiling them individually,
-// this can be time-consuming if you have lots of JARs.
-// In this example, we’re telling Gradle to add all the JAR files in the app/libs folder.//
-
+    //Declares the dependencies for the current module./
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //Although you can add JAR files by compiling them individually,
+    // this can be time-consuming if you have lots of JARs.
+    // In this example, we’re telling Gradle to add all the JAR files in the app/libs folder.//
     testCompile 'junit:junit:4.12'
+    //    compile project(':viewPagerlibrary')
+
+    compile project(':MaterialDesign')
+
+    compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:design:23.2.1'
-    //To create more dependencies, add them to the depencies closure.//
-
     compile 'com.beardedhen:androidbootstrap:2.1.0'
+    compile 'com.android.support:support-v4:23.2.1'
+    compile 'com.android.support:recyclerview-v7:23.2.1'
+
+
 }
