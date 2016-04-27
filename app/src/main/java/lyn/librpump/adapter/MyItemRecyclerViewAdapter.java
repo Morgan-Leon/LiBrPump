@@ -1,4 +1,4 @@
-package lyn.librpump.fragment;
+package lyn.librpump.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -39,10 +39,10 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).id);
         holder.mTitleView.setText(mValues.get(position).title);
-        holder.mTwaiView.setText("Twai = " + mValues.get(position).iTwai + "℃");
-        holder.mTwcoView.setText("Twco = " + mValues.get(position).iTwco + "℃");
-        holder.mTweiView.setText("Twei = " +mValues.get(position).iTwei + "℃");
-        holder.mTweoView.setText("Tweo = " +mValues.get(position).iTweo + "℃");
+        holder.mTwaiView.setText("Twai=" + mValues.get(position).iTwai + "℃");
+        holder.mTwcoView.setText("Twco=" + mValues.get(position).iTwco + "℃");
+        holder.mTweiView.setText("Twei=" +mValues.get(position).iTwei + "℃");
+        holder.mTweoView.setText("Tweo=" +mValues.get(position).iTweo + "℃");
 
 
         holder.mView.setOnClickListener(new View.OnClickListener() {

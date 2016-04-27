@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 
 import lyn.callibrpump.R;
-import lyn.librpump.activity.CreatePumpActivity;
+import lyn.librpump.adapter.MyItemRecyclerViewAdapter;
 import lyn.librpump.fragment.dummy.DummyContent;
 import lyn.librpump.fragment.dummy.DummyContent.DummyItem;
 import lyn.librpump.model.LiBrPumpDBHelper;

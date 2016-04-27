@@ -3,7 +3,7 @@ package lyn.librpump.activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -115,9 +115,10 @@ public class MainActivity extends AppCompatActivity  {
         Fragment itemFragment = new ItemFragment();
 
         fragmentList.add(calCOPFragment);
-        fragmentList.add(pumpFragment);
-        fragmentList.add(calLiBrFragment);
         fragmentList.add(itemFragment);
+        fragmentList.add(calLiBrFragment);
+        fragmentList.add(pumpFragment);
+
 
 
         mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
