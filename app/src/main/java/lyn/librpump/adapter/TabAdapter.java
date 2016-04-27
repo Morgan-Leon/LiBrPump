@@ -9,16 +9,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.List;
 
-import lyn.librpump.fragment.CalCOPFragment;
-import lyn.librpump.fragment.CalLiBrFragment;
-import lyn.librpump.fragment.PumpFragment;
-import lyn.librpump.fragment.TabFragment;
-
 public class TabAdapter extends FragmentPagerAdapter
 {
 //    CalCOPFragment calCOPFragment;
 //    CalLiBrFragment calLiBrFragment;
-//    PumpFragment pumpFragment;
+//    CalH2OFragment pumpFragment;
     private List<Fragment> fragmentList;
 
 

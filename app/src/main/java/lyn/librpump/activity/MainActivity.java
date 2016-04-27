@@ -25,7 +25,7 @@ import lyn.librpump.adapter.TabAdapter;
 import lyn.librpump.fragment.CalCOPFragment;
 import lyn.librpump.fragment.CalLiBrFragment;
 import lyn.librpump.fragment.ItemFragment;
-import lyn.librpump.fragment.PumpFragment;
+import lyn.librpump.fragment.CalH2OFragment;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -111,13 +111,13 @@ public class MainActivity extends AppCompatActivity  {
         fragmentList = new ArrayList<Fragment>();
         Fragment calCOPFragment = new CalCOPFragment();
         Fragment calLiBrFragment = new CalLiBrFragment();
-        Fragment pumpFragment = new PumpFragment();
+        Fragment calH2OFragment = new CalH2OFragment();
         Fragment itemFragment = new ItemFragment();
 
         fragmentList.add(calCOPFragment);
         fragmentList.add(itemFragment);
         fragmentList.add(calLiBrFragment);
-        fragmentList.add(pumpFragment);
+        fragmentList.add(calH2OFragment);
 
 
 

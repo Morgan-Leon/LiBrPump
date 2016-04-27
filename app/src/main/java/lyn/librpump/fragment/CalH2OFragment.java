@@ -1,6 +1,5 @@
 package lyn.librpump.fragment;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,19 +12,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 import lyn.callibrpump.R;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link PumpFragment.OnFragmentInteractionListener} interface
+ * {@link CalH2OFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link PumpFragment#newInstance} factory method to
+ * Use the {@link CalH2OFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PumpFragment extends Fragment {
+public class CalH2OFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -37,7 +35,7 @@ public class PumpFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public PumpFragment() {
+    public CalH2OFragment() {
         // Required empty public constructor
     }
 
@@ -47,11 +45,11 @@ public class PumpFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment PumpFragment.
+     * @return A new instance of fragment CalH2OFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PumpFragment newInstance(String param1, String param2) {
-        PumpFragment fragment = new PumpFragment();
+    public static CalH2OFragment newInstance(String param1, String param2) {
+        CalH2OFragment fragment = new CalH2OFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -72,7 +70,7 @@ public class PumpFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_pump, container, false);
+        View view = inflater.inflate(R.layout.fragment_cal_h2o, container, false);
         SimpleAdapter adapter = new SimpleAdapter(this.getContext(),this.getListData(),R.layout.pump_list,
                 new String[]{"title","info","date"},
                 new int[]{R.id.title,R.id.info,R.id.date});
