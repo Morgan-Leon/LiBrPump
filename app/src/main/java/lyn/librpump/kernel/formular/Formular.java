@@ -33,9 +33,9 @@ public class Formular {
  Calculate saturated vapor pressure(svp) of H2O.
  lgsvp，lg为以10为底的对数
  */
-    public double lgsvp(double satsaturationTemperatureH2O_K) {
+    public double lgsvp(double saturationTemperatureH2O_K) {
          double lgsvp;
-         double t = satsaturationTemperatureH2O_K;
+         double t = saturationTemperatureH2O_K;
          double lgT = log10(t);
         lgsvp = 31.46559 - 8.2 * lgT - 3142.305 / t + 0.0024804 * t;
         return lgsvp;

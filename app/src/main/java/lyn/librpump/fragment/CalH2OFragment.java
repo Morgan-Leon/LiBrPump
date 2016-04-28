@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.SimpleAdapter;
 
 
+import com.gc.materialdesign.views.ButtonRectangle;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 import lyn.callibrpump.R;
+import lyn.librpump.kernel.formular.Formular;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,8 +40,11 @@ public class CalH2OFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private Formular formular = new Formular();
+
     private OnFragmentInteractionListener mListener;
-    private MaterialEditText calH2OPressure;
+    private MaterialEditText editTextLgsvp;
+    private ButtonRectangle  buttonRectangleLgsvp;
 
 
     public CalH2OFragment() {
@@ -79,8 +84,21 @@ public class CalH2OFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cal_h2o, container, false);
 
-        calH2OPressure = (MaterialEditText)view.findViewById(R.id.textfield_et_label);
-        calH2OPressure.setHelperText("结果");
+        editTextLgsvp = (MaterialEditText)view.findViewById(R.id.textfield_lgsvp);
+        editTextLgsvp.setHelperText("");
+
+        buttonRectangleLgsvp = (ButtonRectangle) view.findViewById(R.id.button_lgsvp);
+
+        View.OnClickListener calLgsvp = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double saturationTemperatureH2O_C = Double.valueOf(editTextLgsvp.getText().toString());
+                double mmHg = formular.lgsvp(formular.conversionT_C2K(saturationTemperatureH2O_C));
+                double result = formular.conversion_P_lgmmHg2kPa(mmHg);
+                editTextLgsvp.setHelperText("结果: " + result + "kPa");
+            }
+        };
+        buttonRectangleLgsvp.setOnClickListener(calLgsvp);
 
         return view;
     }
