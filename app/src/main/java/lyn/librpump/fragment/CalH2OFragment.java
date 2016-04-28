@@ -3,10 +3,15 @@ package lyn.librpump.fragment;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.SimpleAdapter;
+
+
+import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,6 +39,8 @@ public class CalH2OFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private MaterialEditText calH2OPressure;
+
 
     public CalH2OFragment() {
         // Required empty public constructor
@@ -71,33 +78,11 @@ public class CalH2OFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cal_h2o, container, false);
-        SimpleAdapter adapter = new SimpleAdapter(this.getContext(),this.getListData(),R.layout.pump_list,
-                new String[]{"title","info","date"},
-                new int[]{R.id.title,R.id.info,R.id.date});
 
-//        setListAdapter(adapter);
+        calH2OPressure = (MaterialEditText)view.findViewById(R.id.textfield_et_label);
+        calH2OPressure.setHelperText("结果");
+
         return view;
-    }
-
-    private List<Map<String,Object>> getListData(){
-        List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
-
-        Map<String,Object> map = new HashMap<String,Object>();
-
-        map.put("title", "G1");
-        map.put("info", "google 1");
-        map.put("data", "2016年4月22日");
-
-        list.add(map);
-
-        map = new HashMap<String, Object>();
-        map.put("title", "G2");
-        map.put("info", "google 2");
-        map.put("data", "2016年");
-        list.add(map);
-
-        return  list;
-
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -20,7 +20,7 @@ android {
         //The version of Android you’re developing your application for.//
         targetSdkVersion 23
         versionCode 3
-        versionName "3.0"
+        versionName "0.0.3"
     }
 
 //‘BuildTypes’ controls how your app is built and packaged.
@@ -48,12 +48,19 @@ dependencies {
 
     compile project(':MaterialDesign')
 
-    compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:design:23.2.1'
     compile 'com.beardedhen:androidbootstrap:2.1.0'
     compile 'com.android.support:support-v4:23.2.1'
     compile 'com.android.support:recyclerview-v7:23.2.1'
+
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+
+
+    compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
+//    compile 'com.github.rey5137:material:1.2.2'
+
+
 
 
 }

@@ -24,7 +24,8 @@ allprojects {
 //Defines the dependencies required by your application.//
 
     repositories {
-        jcenter()
+//        jcenter()
+        jcenter({url "https://jcenter.bintray.com/"})
     }
 }
 

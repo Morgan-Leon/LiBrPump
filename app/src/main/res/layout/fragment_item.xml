@@ -78,15 +78,15 @@
                     </LinearLayout>
 
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:background="@color/colorLightGray" />
+
 
         </LinearLayout>
 
         </LinearLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2sp"
+        android:background="@color/colorLightGray" />
 
 </LinearLayout>
 
