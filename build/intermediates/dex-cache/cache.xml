@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/lyn/AndroidStudio/LiBrPump/app/build/intermediates/exploded-aar/LiBrPump/MaterialDesign/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4b7244eb0b4cf5961e25390dadbff10b9c24633a">
+        <dex dex="/Users/lyn/AndroidStudio/LiBrPump/app/build/intermediates/pre-dexed/debug/LiBrPump-MaterialDesign-unspecified_1bee2e7385bf96ad22e94cbe827331c0380362d0.jar" />
+    </item>
+
+</items>

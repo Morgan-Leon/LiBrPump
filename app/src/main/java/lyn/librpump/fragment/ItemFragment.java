@@ -1,6 +1,7 @@
 package lyn.librpump.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -12,6 +13,8 @@ import android.view.ViewGroup;
 
 
 import lyn.callibrpump.R;
+import lyn.librpump.activity.CreatePumpActivity;
+import lyn.librpump.activity.PumpDetailActivity;
 import lyn.librpump.adapter.MyItemRecyclerViewAdapter;
 import lyn.librpump.fragment.dummy.DummyContent;
 import lyn.librpump.fragment.dummy.DummyContent.DummyItem;
@@ -70,6 +73,13 @@ public class ItemFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_item_list, container, false);
         dbHelper = new LiBrPumpDBHelper(getActivity().getApplicationContext());
         dummyContent = new DummyContent(dbHelper);
+        final Intent createPumpIntent = new Intent(view.getContext(), PumpDetailActivity.class);
+        mListener = new OnListFragmentInteractionListener() {
+            @Override
+            public void onListFragmentInteraction(DummyItem item) {
+                startActivity(createPumpIntent);
+            }
+        };
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -101,6 +111,7 @@ public class ItemFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+
     }
 
     /**
