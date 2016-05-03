@@ -3,21 +3,14 @@ package lyn.librpump.fragment;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.SimpleAdapter;
 
 
 import com.gc.materialdesign.views.ButtonRectangle;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import lyn.callibrpump.R;
 import lyn.librpump.kernel.formular.Formular;
@@ -45,6 +38,16 @@ public class CalH2OFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     private MaterialEditText editTextLgsvp;
     private ButtonRectangle  buttonRectangleLgsvp;
+
+    private MaterialEditText editTextST;
+    private ButtonRectangle  buttonRectangleST;
+
+    private MaterialEditText editTextEnthalpy;
+    private ButtonRectangle  buttonRectangleEnthalpy;
+
+    private MaterialEditText editTextVaporEnthalpy;
+    private ButtonRectangle  buttonRectangleVaporEnthalpy;
+
 
 
     public CalH2OFragment() {
@@ -84,6 +87,7 @@ public class CalH2OFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cal_h2o, container, false);
 
+        //计算饱和水蒸气压
         editTextLgsvp = (MaterialEditText)view.findViewById(R.id.textfield_lgsvp);
         editTextLgsvp.setHelperText("");
 
@@ -99,6 +103,55 @@ public class CalH2OFragment extends Fragment {
             }
         };
         buttonRectangleLgsvp.setOnClickListener(calLgsvp);
+
+        //计算饱和水蒸气温度
+        editTextST = (MaterialEditText)view.findViewById(R.id.textfield_st);
+        editTextST.setHelperText("");
+
+        buttonRectangleST = (ButtonRectangle) view.findViewById(R.id.button_st);
+
+        View.OnClickListener calST = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double satsaturationPressureH2O_kPa = Double.valueOf(editTextST.getText().toString());
+                double result = formular.saturationTemperatureH2O(satsaturationPressureH2O_kPa);
+                editTextST.setHelperText("结果: " + result + "℃");
+            }
+        };
+        buttonRectangleST.setOnClickListener(calST);
+
+        //计算水的焓值
+        editTextEnthalpy = (MaterialEditText)view.findViewById(R.id.textfield_enthalpy);
+        editTextEnthalpy.setHelperText("");
+
+        buttonRectangleEnthalpy = (ButtonRectangle) view.findViewById(R.id.button_enthalpy);
+
+        View.OnClickListener calEnthalpy = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double saturationTemperatureH2O_C = Double.valueOf(editTextEnthalpy.getText().toString());
+                double result = formular._H2O_enthalpy(saturationTemperatureH2O_C);
+                editTextEnthalpy.setHelperText("结果: " + result + "kj/kg");
+            }
+        };
+        buttonRectangleEnthalpy.setOnClickListener(calEnthalpy);
+
+        //计算水蒸汽的焓值
+        editTextVaporEnthalpy = (MaterialEditText)view.findViewById(R.id.textfield_vapor_enthalpy);
+        editTextVaporEnthalpy.setHelperText("");
+
+        buttonRectangleVaporEnthalpy = (ButtonRectangle) view.findViewById(R.id.button_vapor_enthalpy);
+
+        View.OnClickListener calVaporEnthalpy = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double saturationTemperatureH2O_C = Double.valueOf(editTextVaporEnthalpy.getText().toString());
+                double result = formular._H2OVapor_enthalpy(saturationTemperatureH2O_C);
+                editTextVaporEnthalpy.setHelperText("结果: " + result + "kj/kg");
+            }
+        };
+        buttonRectangleVaporEnthalpy.setOnClickListener(calVaporEnthalpy);
+
 
         return view;
     }

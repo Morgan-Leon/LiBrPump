@@ -20,5 +20,11 @@
     <dimen name="app_text_size_large">18sp</dimen>
     <dimen name="app_text_size_xlarge">20sp</dimen>
     <dimen name="app_text_size_diff_large_small">6sp</dimen>
+    
+    <!-- cal H2O-->
+    <dimen name="linear_row_height">110dp</dimen>
+    <dimen name="edit_text_height">100dp</dimen>
+    <dimen name="edit_text_bottom">20dp</dimen>
+
 
 </resources>

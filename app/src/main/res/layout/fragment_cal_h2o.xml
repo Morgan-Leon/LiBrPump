@@ -5,24 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="lyn.librpump.fragment.CalH2OFragment">
 
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:text="@string/hello_pump_fragment" />-->
-
-    <!--<include layout="@layout/pump_list"/>-->
-    <!--<EditText-->
-        <!--android:id="@+id/t_wai"-->
-        <!--android:paddingTop="@dimen/eight_margin"-->
-        <!--android:paddingBottom="@dimen/eight_margin"-->
-        <!--android:layout_marginTop="@dimen/text_margin"-->
-        <!--android:layout_marginBottom="@dimen/eight_margin"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:singleLine="true"-->
-        <!--android:numeric="decimal"-->
-        <!--android:text="50"-->
-        <!--android:hint="@string/t_wai" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,33 +12,20 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <!--<com.rey.material.widget.EditText-->
-            <!--android:id="@+id/textfield_et_label"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:inputType="text"-->
-            <!--android:hint="输入水蒸汽的饱和温度计算压强"-->
-            <!--app:et_labelEnable="true"-->
-            <!--app:et_inputId="@+id/textfield_et_label_input"-->
-            <!--app:et_supportMode="none"-->
-            <!--app:et_dividerColor="@color/colorControlNormal"-->
-            <!--app:et_dividerHeight="1.5sp"-->
-            <!--app:et_dividerErrorColor="@color/colorAccent"-->
-            <!--app:v_styleId="@style/LightEditText"/>-->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/linear_row_height"
         android:orientation="horizontal">
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/textfield_lgsvp"
             android:numeric="decimal"
             android:layout_width="0dp"
             android:layout_weight="20"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/edit_text_height"
             android:paddingRight="@dimen/eight_margin"
-            android:paddingBottom="@dimen/eight_margin"
-            android:hint="已知饱和温度计算压强（℃）"
+            android:paddingBottom="@dimen/edit_text_bottom"
+            android:hint="@string/cal_h2o_lgsvp"
             app:met_baseColor="@color/colorControlNormalHalf"
             app:met_primaryColor="@color/colorAccent"
             app:met_floatingLabel="highlight"
@@ -65,13 +34,99 @@
         <com.gc.materialdesign.views.ButtonRectangle
             android:id="@+id/button_lgsvp"
             android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="100dp"
+            android:layout_height="64dp"
             android:layout_weight="1"
             android:text="计算"
             />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/linear_row_height"
+        android:orientation="horizontal">
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/textfield_st"
+            android:numeric="decimal"
+            android:layout_width="0dp"
+            android:layout_weight="20"
+            android:layout_height="@dimen/edit_text_height"
+            android:paddingRight="@dimen/eight_margin"
+            android:paddingBottom="@dimen/edit_text_bottom"
+            android:hint="@string/cal_h2o_st"
+            app:met_baseColor="@color/colorControlNormalHalf"
+            app:met_primaryColor="@color/colorAccent"
+            app:met_floatingLabel="highlight"
+            app:met_helperTextColor="@color/colorControlActivated"
+            />
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/button_st"
+            android:layout_width="40dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:text="计算"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/linear_row_height"
+        android:orientation="horizontal">
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/textfield_enthalpy"
+            android:numeric="decimal"
+            android:layout_width="0dp"
+            android:layout_weight="20"
+            android:layout_height="@dimen/edit_text_height"
+            android:paddingRight="@dimen/eight_margin"
+            android:paddingBottom="@dimen/edit_text_bottom"
+            android:hint="@string/cal_h2o_enthalpy"
+            app:met_baseColor="@color/colorControlNormalHalf"
+            app:met_primaryColor="@color/colorAccent"
+            app:met_floatingLabel="highlight"
+            app:met_helperTextColor="@color/colorControlActivated"
+            />
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/button_enthalpy"
+            android:layout_width="40dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:text="计算"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/linear_row_height"
+        android:orientation="horizontal">
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/textfield_vapor_enthalpy"
+            android:numeric="decimal"
+            android:layout_width="0dp"
+            android:layout_weight="20"
+            android:layout_height="@dimen/edit_text_height"
+            android:paddingRight="@dimen/eight_margin"
+            android:paddingBottom="@dimen/edit_text_bottom"
+            android:hint="@string/cal_h2o_vapor_enthalpy"
+            app:met_baseColor="@color/colorControlNormalHalf"
+            app:met_primaryColor="@color/colorAccent"
+            app:met_floatingLabel="highlight"
+            app:met_helperTextColor="@color/colorControlActivated"
+            />
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/button_vapor_enthalpy"
+            android:layout_width="40dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:text="计算"
+            />
+
+    </LinearLayout>
+
+
 
 
     </LinearLayout>

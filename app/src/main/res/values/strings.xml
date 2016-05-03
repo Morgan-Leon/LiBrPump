@@ -19,4 +19,10 @@
 
     <string name="hello_cal_libr_fragment">Hello LiBr fragment</string>
 
+
+    <string name="cal_h2o_lgsvp">计算饱和蒸汽压（℃）</string>
+    <string name="cal_h2o_st">计算饱和温度(kPa)</string>
+    <string name="cal_h2o_enthalpy">水的焓值（℃）</string>
+    <string name="cal_h2o_vapor_enthalpy">水蒸气的焓值（℃）</string>
+
 </resources>
