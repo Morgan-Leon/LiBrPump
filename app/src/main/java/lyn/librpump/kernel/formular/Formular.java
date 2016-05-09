@@ -11,21 +11,21 @@ public class Formular {
     /*
  摄氏度转开尔文温度
  */
-    public double conversionT_C2K(double temperature_C) {
+    static public double  conversionT_C2K(double temperature_C) {
         return temperature_C + 273.15;
     }
 
     /*
      开尔文温度转摄氏度
      */
-    public double conversionT_K2C(double temperature_K) {
+    static public double  conversionT_K2C(double temperature_K) {
         return temperature_K - 273.15;
     }
 
     /*
      mmHg与kPa换算
      */
-    public double conversion_P_lgmmHg2kPa(double lgp) {
+    static public double  conversion_P_lgmmHg2kPa(double lgp) {
         return pow(10, lgp) * 0.1333224;
     }
 
@@ -33,7 +33,7 @@ public class Formular {
  Calculate saturated vapor pressure(svp) of H2O.
  lgsvp，lg为以10为底的对数
  */
-    public double lgsvp(double saturationTemperatureH2O_K) {
+    static public double  lgsvp(double saturationTemperatureH2O_K) {
          double lgsvp;
          double t = saturationTemperatureH2O_K;
          double lgT = log10(t);
@@ -46,7 +46,7 @@ public class Formular {
      适用于2kpa- 1500kpa 相对误差≤0.3%
      按此公式与上述压力计算公式反算 每个温度值与标准值几乎都相差0.4，遂在计算末加之
      */
-    public double saturationTemperatureH2O(double satsaturationPressureH2O_kPa) {
+    static public double  saturationTemperatureH2O(double satsaturationPressureH2O_kPa) {
          double t = 0.0000000;
          double p = satsaturationPressureH2O_kPa;
          double c[] = {6.004553, 15.89247, -0.1723261, 0.3940772, -4.631586e-2, 3.01707e-3};
@@ -60,7 +60,7 @@ public class Formular {
      #06
      换算：1千卡 = 4.184千焦
      */
-    public double conversionQ_kCal2kJ(double kCal) {
+    static public double  conversionQ_kCal2kJ(double kCal) {
         return kCal * 4.184;
     }
 
@@ -73,7 +73,7 @@ public class Formular {
      结果转化为kJ
      t1 为压力p时饱和水蒸气的温度，可利用#05计算
      */
-    public double _H2O_latentHeatOfVaporization(double saturationTemperatureH2O_C) {
+    static public double  _H2O_latentHeatOfVaporization(double saturationTemperatureH2O_C) {
 
          double t1 = saturationTemperatureH2O_C;
          double y = 5.1463 - 1540 / (t1 + 273.16);
@@ -89,7 +89,7 @@ public class Formular {
      t1为水的温度（˚C）
      结果用公式6换算成千焦
      */
-    public double _H2O_enthalpy(double temperatureH2O_C) {
+    static public double  _H2O_enthalpy(double temperatureH2O_C) {
         return conversionQ_kCal2kJ(temperatureH2O_C);
     }
 
@@ -98,7 +98,7 @@ public class Formular {
      计算水蒸气的焓值：h2 = h1 + r (kJ/kg)
      r为饱和水的气化潜热
      */
-    public double _H2OVapor_enthalpy(double temperatureH2O_C) {
+    static public double  _H2OVapor_enthalpy(double temperatureH2O_C) {
         return _H2O_enthalpy(temperatureH2O_C) + _H2O_latentHeatOfVaporization(temperatureH2O_C);
     }
 
@@ -116,7 +116,7 @@ public class Formular {
  Cp 为过热水蒸气t1-t的定呀平均比热。计算普通单级循环蒸汽焓值时,Cp ≈ 0.46kcal/kg
  */
 
-    public double _H2OHeat_enthalpy(double saturationTemperatureH2O_C, double saturationTemperatureLiBr_C) {
+    static public double  _H2OHeat_enthalpy(double saturationTemperatureH2O_C, double saturationTemperatureLiBr_C) {
          double Cp = 0.46;
          double t = saturationTemperatureLiBr_C;
          double t1 = saturationTemperatureH2O_C;
@@ -135,7 +135,7 @@ public class Formular {
  45% < concentrationOfLiBrSolution < 65%
  */
 
-    public double dewTLiBr(double satsaturationTemperatureH2O_C, double concentrationOfLiBrSolution) {
+    static public double  dewTLiBr(double satsaturationTemperatureH2O_C, double concentrationOfLiBrSolution) {
 
          double a[] = {0.770033, 1.45455e-2, -2.63906e-4, 2.27609e-6};
          double b[] = {140.877, -8.55749, 0.16709, -8.82641e-4};
@@ -164,7 +164,7 @@ public class Formular {
      10˚ ≤ t ≤ 130˚C
      2kpa ≤ P ≤ 1500kpa
      */
-    public double _concentration_LiBrSolution(double solutionTemperatureLiBr_C,double pressure_kPa) {
+    static public double  _concentration_LiBrSolution(double solutionTemperatureLiBr_C,double pressure_kPa) {
          double t = solutionTemperatureLiBr_C;
          double t1 = saturationTemperatureH2O(pressure_kPa);
          double a[] = {0.31057, -1.282e-2, -1.7312e-4, 5.3303e-7};
@@ -202,7 +202,7 @@ public class Formular {
      x = 58.998
      h = 282.773
      */
-    public double enthalpyLiBrSolution(double solutionTemperatureLiBr_C, double concentrationOfLiBrSolution) {
+    static public double  enthalpyLiBrSolution(double solutionTemperatureLiBr_C, double concentrationOfLiBrSolution) {
          double a[] = {3.22313e2, 3.83413e2, -2.65438e3, 2.87262e3};
          double b[] = {4.19928, -9.39005, 1.60770e1, -1.36171e1};
          double c[] = {1.00479e-3, -1.41857e-3, -2.06186e-3, 5.92438e-3};
@@ -232,7 +232,7 @@ public class Formular {
       对温度t的求解即为 解 一元二次方程 A + B * t + C * t^2  - H = 0
       亦可用牛顿下山法求解。
      */
-    public double temperaturLiBrSolution(double enthalpyLiBrSolution, double concentrationOfLiBrSolution) {
+    static public double  temperaturLiBrSolution(double enthalpyLiBrSolution, double concentrationOfLiBrSolution) {
          double h = enthalpyLiBrSolution;
          double x = concentrationOfLiBrSolution;
          double a[] = {3.22313e2, 3.83413e2, -2.65438e3, 2.87262e3};

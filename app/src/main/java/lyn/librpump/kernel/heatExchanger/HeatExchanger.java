@@ -1,13 +1,13 @@
 package lyn.librpump.kernel.heatExchanger;
 
-import lyn.librpump.kernel.formular.Formular;
+import static lyn.librpump.kernel.formular.Formular.*;
 
 /**
  * Created by lyn on 16/4/11.
  */
 public class HeatExchanger {
 
-    Formular formular = new Formular();
+
 
     double XL,XH;
     double deltaT_h = 17;
@@ -40,7 +40,7 @@ public class HeatExchanger {
     }
 
     public double calH8o(double t, double x){
-        return formular.enthalpyLiBrSolution(t, x);
+        return enthalpyLiBrSolution(t, x);
     }
 
     public double calH7o(double h4, double h2){
@@ -48,7 +48,7 @@ public class HeatExchanger {
     }
 
     public double calT7o(double H7o, double X7o){
-        return formular.temperaturLiBrSolution(H7o, X7o);
+        return temperaturLiBrSolution(H7o, X7o);
     }
 
     void setDeltaT_h(double h){

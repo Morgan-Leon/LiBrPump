@@ -1,13 +1,13 @@
 package lyn.librpump.kernel.generator;
 
-import lyn.librpump.kernel.formular.Formular;
+import static lyn.librpump.kernel.formular.Formular.*;
 
 /**
  * Created by lyn on 16/4/11.
  */
 public class Generator {
 
-    Formular formular = new Formular();
+
 
     double T4wo,P4wo,H4wo,X4wo;
     double T4o,P4o,H4o,X4o;
@@ -41,27 +41,27 @@ public class Generator {
     }
 
     public double calH4wo(double saturationTemperatureH2O_C,double saturationTemperatureLiBr_C){
-        return formular._H2OHeat_enthalpy(saturationTemperatureH2O_C, saturationTemperatureLiBr_C);
+        return _H2OHeat_enthalpy(saturationTemperatureH2O_C, saturationTemperatureLiBr_C);
     }
 
     public double calT4wo(double t, double x){
-        return formular.dewTLiBr(t, x);
+        return dewTLiBr(t, x);
     }
 
     public double calT4o(double t, double x){
-        return formular.dewTLiBr(t, x);
+        return dewTLiBr(t, x);
     }
 
     public double calT5i(double t, double x){
-        return formular.dewTLiBr(t, x);
+        return dewTLiBr(t, x);
     }
 
     public double calH4o(double t, double x){
-        return formular.enthalpyLiBrSolution(t, x);
+        return enthalpyLiBrSolution(t, x);
     }
 
     public double calH5i(double t, double x){
-        return formular.enthalpyLiBrSolution(t, x);
+        return enthalpyLiBrSolution(t, x);
     }
 
     public double getX4o(){

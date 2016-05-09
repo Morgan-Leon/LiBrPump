@@ -35,7 +35,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="lyn.librpump.activity.MainActivity" />
         </activity>
-        <activity android:name="lyn.librpump.activity.PumpDetailActivity"></activity>
+        <activity android:name="lyn.librpump.activity.PumpDetailActivity" />
+        <activity
+            android:name="lyn.librpump.activity.SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>

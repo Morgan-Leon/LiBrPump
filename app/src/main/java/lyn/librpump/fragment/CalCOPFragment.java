@@ -1,8 +1,6 @@
 package lyn.librpump.fragment;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.DialogInterface;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -17,8 +15,9 @@ import com.beardedhen.androidbootstrap.BootstrapButton;
 import lyn.callibrpump.R;
 import lyn.librpump.kernel.pump.Pump;
 import lyn.librpump.model.LiBrPumpDBHelper;
-import lyn.librpump.model.librpump.LiBrPumpContract;
-import lyn.librpump.model.librpumpConfig.LiBrPumpConfigContract;
+
+
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -120,26 +119,8 @@ public class CalCOPFragment extends Fragment {
 
                 Pump pump = new Pump(Twai,Twco,Twei,Tweo);
 
-                System.out.println("======================================");
-
-                System.out.println(Twai + " " + Twco + " " + Twei + " " + Tweo + " ");
-
-                System.out.println("======================================");
-
-
-
                 Snackbar.make(v, "COP = " + pump.getCOP(), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-
-//                ContentValues pumpConfigValues ,pumpValues;
-//
-//                pumpConfigValues = LiBrPumpConfigContract.LiBrPumpConfigEntry.generateValues(pump);
-//                pumpValues = LiBrPumpContract.LiBrPumpEntry.generateValues(pump);
-//
-//                System.out.println(pumpConfigValues);
-//                System.out.println(pumpValues);
-//
-//                dbHelper.insert(pumpConfigValues, pumpValues);
             }
         };
 

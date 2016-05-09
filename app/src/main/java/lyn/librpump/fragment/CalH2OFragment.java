@@ -7,13 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
 import com.gc.materialdesign.views.ButtonRectangle;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
-
 import lyn.callibrpump.R;
-import lyn.librpump.kernel.formular.Formular;
+import static lyn.librpump.kernel.formular.Formular.*;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,8 +30,6 @@ public class CalH2OFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-    private Formular formular = new Formular();
 
     private OnFragmentInteractionListener mListener;
     private MaterialEditText editTextLgsvp;
@@ -97,8 +93,8 @@ public class CalH2OFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 double saturationTemperatureH2O_C = Double.valueOf(editTextLgsvp.getText().toString());
-                double mmHg = formular.lgsvp(formular.conversionT_C2K(saturationTemperatureH2O_C));
-                double result = formular.conversion_P_lgmmHg2kPa(mmHg);
+                double mmHg = lgsvp(conversionT_C2K(saturationTemperatureH2O_C));
+                double result = conversion_P_lgmmHg2kPa(mmHg);
                 editTextLgsvp.setHelperText("结果: " + result + "kPa");
             }
         };
@@ -114,7 +110,7 @@ public class CalH2OFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 double satsaturationPressureH2O_kPa = Double.valueOf(editTextST.getText().toString());
-                double result = formular.saturationTemperatureH2O(satsaturationPressureH2O_kPa);
+                double result = saturationTemperatureH2O(satsaturationPressureH2O_kPa);
                 editTextST.setHelperText("结果: " + result + "℃");
             }
         };
@@ -130,7 +126,7 @@ public class CalH2OFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 double saturationTemperatureH2O_C = Double.valueOf(editTextEnthalpy.getText().toString());
-                double result = formular._H2O_enthalpy(saturationTemperatureH2O_C);
+                double result = _H2O_enthalpy(saturationTemperatureH2O_C);
                 editTextEnthalpy.setHelperText("结果: " + result + "kj/kg");
             }
         };
@@ -146,7 +142,7 @@ public class CalH2OFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 double saturationTemperatureH2O_C = Double.valueOf(editTextVaporEnthalpy.getText().toString());
-                double result = formular._H2OVapor_enthalpy(saturationTemperatureH2O_C);
+                double result = _H2OVapor_enthalpy(saturationTemperatureH2O_C);
                 editTextVaporEnthalpy.setHelperText("结果: " + result + "kj/kg");
             }
         };

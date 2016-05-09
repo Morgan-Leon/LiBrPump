@@ -31,49 +31,54 @@ public class DummyContent {
     private static SQLiteDatabase db;
     private static Cursor cursor;
 
-    public  DummyContent(LiBrPumpDBHelper dbHelper){
+public  DummyContent(LiBrPumpDBHelper dbHelper){
 
-        ITEMS.removeAll(ITEMS);
+    ITEMS.removeAll(ITEMS);
 
-        this.dbHelper = dbHelper;
-        db = this.dbHelper.getReadableDatabase();
+    this.dbHelper = dbHelper;
+    db = this.dbHelper.getReadableDatabase();
 
-        String[] projection = {
-                LiBrPumpConfigEntry._ID,
-                LiBrPumpConfigEntry.COLUMN_NAME_TWAI,
-                LiBrPumpConfigEntry.COLUMN_NAME_TWCO,
-                LiBrPumpConfigEntry.COLUMN_NAME_TWEI,
-                LiBrPumpConfigEntry.COLUMN_NAME_TWEO,
-                LiBrPumpConfigEntry.COLUMN_NAME_TITLE,
-                LiBrPumpConfigEntry.COLUMN_NAME_MODIFICATION_TIME
-        };
-        String sortOrder =
-                LiBrPumpConfigEntry.COLUMN_NAME_CREATE_TIME + " DESC";
+    String[] projection = {
+            LiBrPumpConfigEntry._ID,
+            LiBrPumpConfigEntry.COLUMN_NAME_TWAI,
+            LiBrPumpConfigEntry.COLUMN_NAME_TWCO,
+            LiBrPumpConfigEntry.COLUMN_NAME_TWEI,
+            LiBrPumpConfigEntry.COLUMN_NAME_TWEO,
+            LiBrPumpConfigEntry.COLUMN_NAME_TITLE,
+            LiBrPumpConfigEntry.COLUMN_NAME_MODIFICATION_TIME
+    };
+    String sortOrder =
+            LiBrPumpConfigEntry.COLUMN_NAME_CREATE_TIME + " DESC";
 
-        cursor = db.query(LiBrPumpConfigEntry.TABLE_NAME,projection,null,null,null,null,sortOrder);
-        if(cursor.moveToFirst()) {
-            System.out.print("CURSOR ====" +  cursor.getCount());
-            int i = 0;
+    cursor = db.query(LiBrPumpConfigEntry.TABLE_NAME,projection,null,null,null,null,sortOrder);
+    if(cursor.moveToFirst()) {
+        int i = 0;
 //          for循环易错
-            while (cursor.moveToNext()){
-                i++;
-                String title = cursor.getString(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TITLE));
-                Double iTwai = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWAI));
-                Double iTwco = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWCO));
-                Double iTwei = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWEI));
-                Double iTweo = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWEO));
+        while (cursor.moveToNext()){
+            i++;
+            String title = cursor.getString(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TITLE));
+            Double iTwai = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWAI));
+            Double iTwco = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWCO));
+            Double iTwei = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWEI));
+            Double iTweo = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWEO));
 
-                addItem(createDummyItem(i, title, iTwai.toString(), iTwco.toString(), iTwei.toString(), iTweo.toString()));
-            }
-
-//            for(int i= 0; i < cursor.getCount(); i++){
-//
-//            }
-
-
+            addItem(createDummyItem(i, title, iTwai.toString(), iTwco.toString(), iTwei.toString(), iTweo.toString()));
         }
-
     }
+
+//    if(cursor.moveToFirst()) {
+//        for (int i = 1; i <= cursor.getCount(); i++) {
+//            cursor.move(i);
+//            String title = cursor.getString(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TITLE));
+//            Double iTwai = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWAI));
+//            Double iTwco = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWCO));
+//            Double iTwei = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWEI));
+//            Double iTweo = cursor.getDouble(cursor.getColumnIndex(LiBrPumpConfigEntry.COLUMN_NAME_TWEO));
+//
+//            addItem(createDummyItem(i, title, iTwai.toString(), iTwco.toString(), iTwei.toString(), iTweo.toString()));
+//        }
+//    }
+}
 
 
     /**

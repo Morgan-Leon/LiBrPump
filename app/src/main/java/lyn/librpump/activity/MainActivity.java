@@ -24,7 +24,7 @@ import lyn.callibrpump.R;
 import lyn.librpump.adapter.TabAdapter;
 import lyn.librpump.fragment.CalCOPFragment;
 import lyn.librpump.fragment.CalLiBrFragment;
-import lyn.librpump.fragment.ItemFragment;
+import lyn.librpump.fragment.PumpItemFragment;
 import lyn.librpump.fragment.CalH2OFragment;
 
 public class MainActivity extends AppCompatActivity  {
@@ -80,6 +80,8 @@ public class MainActivity extends AppCompatActivity  {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent settingIntent = new Intent(this,SettingsActivity.class);
+            startActivity(settingIntent);
             return true;
         }
 
@@ -112,17 +114,14 @@ public class MainActivity extends AppCompatActivity  {
         Fragment calCOPFragment = new CalCOPFragment();
         Fragment calLiBrFragment = new CalLiBrFragment();
         Fragment calH2OFragment = new CalH2OFragment();
-        Fragment itemFragment = new ItemFragment();
+        Fragment itemFragment = new PumpItemFragment();
 
         fragmentList.add(calCOPFragment);
         fragmentList.add(itemFragment);
         fragmentList.add(calLiBrFragment);
         fragmentList.add(calH2OFragment);
 
-
-
         mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
-//        mTabPageIndicator = (TabPageIndicator) findViewById(R.id.id_indicator);
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         mAdapter = new TabAdapter(getSupportFragmentManager(),fragmentList);
         mViewPager.setAdapter(mAdapter);

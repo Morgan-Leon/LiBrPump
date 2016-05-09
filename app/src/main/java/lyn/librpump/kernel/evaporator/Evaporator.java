@@ -1,6 +1,6 @@
 package lyn.librpump.kernel.evaporator;
 
-import lyn.librpump.kernel.formular.Formular;
+import static lyn.librpump.kernel.formular.Formular.*;
 
 /**
  * Created by lyn on 16/4/11.
@@ -20,7 +20,7 @@ import lyn.librpump.kernel.formular.Formular;
  */
 public class Evaporator {
 
-    Formular formular = new Formular();
+
 
     double Twei;
     double Tweo;
@@ -67,9 +67,9 @@ public class Evaporator {
         3、将mmHg换算为kPa;
      */
     public double calP1i(double T1i_C){
-        double T1i_K = formular.conversionT_C2K(T1i_C);
-        double lgP1i = formular.lgsvp(T1i_K);
-        return formular.conversion_P_lgmmHg2kPa(lgP1i);
+        double T1i_K = conversionT_C2K(T1i_C);
+        double lgP1i = lgsvp(T1i_K);
+        return conversion_P_lgmmHg2kPa(lgP1i);
 
     }
 
@@ -77,14 +77,14 @@ public class Evaporator {
      计算水的焓值
      */
     public double calH1i(double T1i_C){
-        return formular._H2O_enthalpy(T1i_C);
+        return _H2O_enthalpy(T1i_C);
     }
 
     /*
      计算水蒸气的焓值
      */
     public double calH1o(double T1o_C){
-        return formular._H2OVapor_enthalpy(T1o_C);
+        return _H2OVapor_enthalpy(T1o_C);
     }
 
     public double getTwei(){

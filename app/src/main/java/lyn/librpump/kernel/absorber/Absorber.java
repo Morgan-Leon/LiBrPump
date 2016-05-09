@@ -1,6 +1,6 @@
 package lyn.librpump.kernel.absorber;
 
-import lyn.librpump.kernel.formular.Formular;
+import static lyn.librpump.kernel.formular.Formular.*;
 
 /**
  * Created by lyn on 16/4/11.
@@ -20,8 +20,6 @@ import lyn.librpump.kernel.formular.Formular;
  */
 
 public class Absorber {
-
-        Formular formular = new Formular();
 
         //二次水入口温度及二次水出吸收器的温度
         double Twai,Twao;
@@ -64,20 +62,20 @@ public class Absorber {
         }
 
         public double calX2o(){
-            return formular._concentration_LiBrSolution(T2o, P2o);
+            return _concentration_LiBrSolution(T2o, P2o);
         }
 
         public double calH2o(){
-            return formular.enthalpyLiBrSolution(T2o, X2o);
+            return enthalpyLiBrSolution(T2o, X2o);
         }
 
         public double calT6i(){
-        double temperatureForWater = formular.saturationTemperatureH2O(P6i);
-            return formular.dewTLiBr(temperatureForWater, X6i);
+        double temperatureForWater = saturationTemperatureH2O(P6i);
+            return dewTLiBr(temperatureForWater, X6i);
         }
 
         public double calH6i(){
-            return formular.enthalpyLiBrSolution(T6i, X6i);
+            return enthalpyLiBrSolution(T6i, X6i);
         }
 
         public double getX2o(){

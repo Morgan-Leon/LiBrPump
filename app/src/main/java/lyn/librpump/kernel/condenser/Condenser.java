@@ -1,6 +1,6 @@
 package lyn.librpump.kernel.condenser;
 
-import lyn.librpump.kernel.formular.Formular;
+import static lyn.librpump.kernel.formular.Formular.*;
 
 /**
  * Created by lyn on 16/4/11.
@@ -17,8 +17,6 @@ import lyn.librpump.kernel.formular.Formular;
  */
 
 public class Condenser {
-
-    Formular formular = new Formular();
 
     //冷凝器出口水温要略高于二次水出口，其大小由冷凝管决定（3-5˚C）
     double deltaT_c = 5;
@@ -43,12 +41,12 @@ public class Condenser {
 
     //三步法计算水的饱和蒸汽压力
     public double calP3o(double t){
-        double lgP3o = formular.lgsvp(formular.conversionT_C2K(t));
-        return formular.conversion_P_lgmmHg2kPa(lgP3o);
+        double lgP3o = lgsvp(conversionT_C2K(t));
+        return conversion_P_lgmmHg2kPa(lgP3o);
     }
 
     public double calH3o(double t){
-        return formular._H2O_enthalpy(t);
+        return _H2O_enthalpy(t);
     }
 
     public double setDeltaT_C(double deltaT_C){
